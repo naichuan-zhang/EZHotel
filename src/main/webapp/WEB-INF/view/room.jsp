@@ -12,13 +12,13 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <c:url value="/css/main.css" var="jstlCss" />
+    <c:url value="/main/webapp/resources/main.css" var="jstlCss" />
     <link href="${jstlCss}" rel="stylesheet" />
     <title>Room</title>
 </head>
 <body>
 
-<%@ include file="../../resources/nav.html" %>
+<%@ include file="../../resources/nav.jsp" %>
 
 <div class="container">
     <div class="starter-template">

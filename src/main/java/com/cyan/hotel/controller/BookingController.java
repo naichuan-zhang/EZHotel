@@ -5,14 +5,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * @author: Naichuan Zhang
- * @create: 02-Nov-2019
+ * @create: 05-Nov-2019
  **/
 
 @Controller
-public class RoomController {
+public class BookingController {
 
-    @GetMapping(value = "/room")
-    public String room() {
-        return "room";
+    @GetMapping(value = "/booking")
+    public String booking() {
+
+        return "booking";
     }
 }
