@@ -22,7 +22,7 @@
     <%@ include file="../../resources/nav.jsp" %>
 
     <div class="container">
-        <%--@elvariable id="loginForm" type="com.cyan.hotel.entity.Guest"--%>
+        <%--@elvariable id="loginForm" type="com.cyan.hotel.model.Guest"--%>
         <form class="form-register" method="post" action="${contextPath}/login">
             <%--@elvariable id="message" type="java.lang.String"--%>
             <%--@elvariable id="error" type="java.lang.String"--%>

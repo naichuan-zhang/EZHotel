@@ -24,7 +24,7 @@
     <%@ include file="../../resources/nav.jsp" %>
 
     <div class="container">
-        <%--@elvariable id="guestForm" type="com.cyan.hotel.entity.Guest"--%>
+        <%--@elvariable id="guestForm" type="com.cyan.hotel.model.Guest"--%>
         <form:form class="form-register" modelAttribute="guestForm" method="post">
             <h2 class="form-header">Register</h2>
             <spring:bind path="username">

@@ -1,4 +1,4 @@
-package com.cyan.hotel.entity;
+package com.cyan.hotel.model;
 
 import javax.persistence.*;
 
@@ -6,25 +6,39 @@ import javax.persistence.*;
  * @author: Naichuan Zhang
  * @create: 05-Nov-2019
  **/
-@MappedSuperclass
+
+//@MappedSuperclass
+@Entity
+@Table(name = "user")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", updatable = false, nullable = false)
-    private Long id;
+    @Column(name = "userId")
+    private Long userId;
 
-    @Column
+    @Column(name = "username")
     private String username;
 
-    @Column
+    @Column(name = "password")
     private String password;
 
-    public Long getId() {
-        return id;
+    public User() {
+
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public Long getId() {
+        return userId;
+    }
+
+    public void setId(Long userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {

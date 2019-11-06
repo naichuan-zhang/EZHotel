@@ -1,6 +1,6 @@
 package com.cyan.hotel.controller;
 
-import com.cyan.hotel.entity.Guest;
+import com.cyan.hotel.model.Guest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
