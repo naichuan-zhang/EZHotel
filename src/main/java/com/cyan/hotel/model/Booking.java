@@ -26,10 +26,31 @@ public class Booking {
     @Column(name = "numberOfGuests")
     private Integer numberOfGuests;
 
-    // TODO: add more...
-
     public Booking() {
 
     }
 
+    public void setBookingId(Long bookingId) {
+        this.bookingId = bookingId;
+    }
+
+    public Long getBookingId() {
+        return bookingId;
+    }
+
+    public void setBookingDate(Date bookingDate) {
+        this.bookingDate = bookingDate;
+    }
+
+    public Integer getNumberOfGuests() {
+        return numberOfGuests;
+    }
+
+    public void setNumberOfGuests(Integer numberOfGuests) {
+        this.numberOfGuests = numberOfGuests;
+    }
+
+    public Date getBookingDate() {
+        return bookingDate;
+    }
 }
