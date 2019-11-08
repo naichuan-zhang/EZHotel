@@ -11,15 +11,26 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "guest")
-@PrimaryKeyJoinColumn(name = "userId")
+//@PrimaryKeyJoinColumn(name = "userId")
 public class Guest extends User {
 
     @Transient
     private String passwordConfirm;
+
+    @Column(name = "emailAddress", nullable = false)
     private String emailAddress;
+
+    @Column(name = "phoneNumber", nullable = false)
     private String phoneNumber;
+
+    @Column(name = "firstName", nullable = false)
     private String firstName;
+
+    @Column(name = "lastName", nullable = false)
     private String lastName;
+
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "loyaltyLevel")
     private LoyatyLevel loyatyLevel;
 
     public Guest() {

@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "manager")
-@PrimaryKeyJoinColumn(name = "userId")
+//@PrimaryKeyJoinColumn(name = "userId")
 public class Manager extends User {
 
     public Manager(String username, String password) {

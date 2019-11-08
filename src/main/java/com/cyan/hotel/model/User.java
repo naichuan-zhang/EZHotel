@@ -7,15 +7,14 @@ import javax.persistence.*;
  * @create: 05-Nov-2019
  **/
 
-//@MappedSuperclass
 @Entity
 @Table(name = "user")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "userId")
+    @Column(name = "userId", updatable = false, nullable = false)
     private Long userId;
 
     @Column(name = "username")
