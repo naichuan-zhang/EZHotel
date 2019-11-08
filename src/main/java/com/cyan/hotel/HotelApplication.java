@@ -30,16 +30,6 @@ public class HotelApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(HotelApplication.class, args);
-
-        List<RoomType> roomTypes = new ArrayList<>();
-        for(RoomType roomType : roomTypes){
-            System.out.println(roomType.getRoomType());
-        }
-
-    }
-
-    public List<RoomType> getAllRoomTypes(){
-        return roomTypeRepository.findAll();
     }
 
 }

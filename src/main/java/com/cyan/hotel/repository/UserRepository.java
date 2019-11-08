@@ -13,9 +13,4 @@ import java.util.Collection;
  **/
 public interface UserRepository extends JpaRepository<Guest, Long> {
 
-    @Query(value = "select g from guest g where g.username = :username")
-    Guest findGuestByUsername(@Param("username") String username);
-
-    @Query(value = "select g from guest g")
-    Collection<Guest> findAllGuests();
 }
