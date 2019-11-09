@@ -3,6 +3,7 @@ package com.cyan.hotel.model;
 import com.cyan.hotel.enumeration.LoyatyLevel;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author: Naichuan Zhang
@@ -23,22 +24,22 @@ public class Guest extends User {
     @Column(name = "phoneNumber", nullable = false)
     private String phoneNumber;
 
-    @Column(name = "firstName", nullable = false)
-    private String firstName;
-
-    @Column(name = "lastName", nullable = false)
-    private String lastName;
-
     @Enumerated(value = EnumType.STRING)
     @Column(name = "loyaltyLevel")
     private LoyatyLevel loyatyLevel;
+
+    @OneToMany(mappedBy = "guest")
+    private List<Booking> bookings;
+
+    @OneToMany(mappedBy = "guest")
+    private List<Payment> payments;
 
     public Guest() {
         super();
     }
 
-    public Guest(String username, String password) {
-        super(username, password);
+    public Guest(String firstName, String lastName, String username, String password) {
+        super(firstName, lastName, username, password);
     }
 
     public String getPasswordConfirm() {
@@ -49,20 +50,12 @@ public class Guest extends User {
         this.passwordConfirm = passwordConfirm;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public String getPhoneNumber() {
@@ -73,19 +66,27 @@ public class Guest extends User {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
     public LoyatyLevel getLoyatyLevel() {
         return loyatyLevel;
     }
 
     public void setLoyatyLevel(LoyatyLevel loyatyLevel) {
         this.loyatyLevel = loyatyLevel;
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
+
+    public List<Payment> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(List<Payment> payments) {
+        this.payments = payments;
     }
 }

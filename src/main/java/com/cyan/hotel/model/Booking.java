@@ -26,6 +26,10 @@ public class Booking {
     @Column(name = "numberOfGuests")
     private Integer numberOfGuests;
 
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private Guest guest;
+
     public Booking() {
 
     }
@@ -52,5 +56,13 @@ public class Booking {
 
     public Date getBookingDate() {
         return bookingDate;
+    }
+
+    public Guest getGuest() {
+        return guest;
+    }
+
+    public void setGuest(Guest guest) {
+        this.guest = guest;
     }
 }

@@ -1,6 +1,7 @@
 package com.cyan.hotel.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 
 /**
  * @author: Naichuan Zhang
@@ -17,6 +18,14 @@ public class User {
     @Column(name = "userId", updatable = false, nullable = false)
     private Long userId;
 
+    @Column(name = "firstName", nullable = false)
+    @Pattern(regexp = "^[a-zA-z]{1,100}", message = "Letters Only!")
+    private String firstName;
+
+    @Column(name = "lastName", nullable = false)
+    @Pattern(regexp = "^[a-zA-z]{1,100}", message = "Letters Only!")
+    private String lastName;
+
     @Column(name = "username")
     private String username;
 
@@ -27,17 +36,35 @@ public class User {
 
     }
 
-    public User(String username, String password) {
+    public User(String firstName, String lastName, String username, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = username;
         this.password = password;
     }
 
-    public Long getId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setId(Long userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getUsername() {
