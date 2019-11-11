@@ -1,6 +1,6 @@
 package com.cyan.hotel.enumeration;
 
-public enum LoyatyLevels {
+public enum LoyatyLevel {
     Copper,
     Silver,
     Gold,

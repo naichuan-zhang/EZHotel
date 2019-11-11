@@ -17,7 +17,7 @@ public class RoomType {
 
     @Column(name = "roomType")
     @Enumerated(EnumType.STRING)
-    private RoomTypes roomType;
+    RoomTypes roomTypes;
 
     @Column(name = "roomRate")
     private int roomRate;
@@ -40,11 +40,11 @@ public class RoomType {
     }
 
     public RoomTypes getRoomType() {
-        return roomType;
+        return roomTypes;
     }
 
     public void setRoomType(RoomTypes roomType) {
-        this.roomType = roomType;
+        this.roomTypes = roomType;
     }
 
     public int getRoomRate() {
