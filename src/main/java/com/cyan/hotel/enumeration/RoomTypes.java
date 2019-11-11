@@ -1,6 +1,6 @@
 package com.cyan.hotel.enumeration;
 
-public enum RoomType {
+public enum RoomTypes {
     Ensuit,
     Single,
     Double

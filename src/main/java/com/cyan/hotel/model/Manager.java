@@ -9,10 +9,31 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "manager")
-//@PrimaryKeyJoinColumn(name = "userId")
 public class Manager extends User {
+
+    @OneToOne(mappedBy = "manager")
+    private User user;
+
+    @Column(name = "managerId", nullable = false, insertable = false, updatable = false)
+    private int managerId;
 
     public Manager(String username, String password) {
         super();
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public int getManagerId() {
+        return managerId;
+    }
+
+    public void setManagerId(int managerId) {
+        this.managerId = managerId;
     }
 }

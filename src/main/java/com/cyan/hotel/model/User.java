@@ -6,6 +6,8 @@ import javax.validation.constraints.Pattern;
 /**
  * @author: Naichuan Zhang
  * @create: 05-Nov-2019
+ *
+ *
  **/
 
 @Entity
@@ -17,6 +19,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "userId", updatable = false, nullable = false)
     private Long userId;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "guestId", referencedColumnName = "userId")
+    private Guest guest;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "managerId", referencedColumnName = "userId")
+    private Manager manager;
+
 
     @Column(name = "firstName", nullable = false)
     @Pattern(regexp = "^[a-zA-z]{1,100}", message = "Letters Only!")

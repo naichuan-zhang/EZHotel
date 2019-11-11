@@ -12,11 +12,16 @@ import java.util.List;
 
 @Entity
 @Table(name = "guest")
-//@PrimaryKeyJoinColumn(name = "userId")
 public class Guest extends User {
 
     @Transient
     private String passwordConfirm;
+
+    @OneToOne(mappedBy = "guest")
+    private User user;
+
+    @Column(name = "guestId", nullable = false, insertable = false, updatable = false)
+    private int guestId;
 
     @Column(name = "emailAddress", nullable = false)
     private String emailAddress;
@@ -41,6 +46,15 @@ public class Guest extends User {
     public Guest(String firstName, String lastName, String username, String password) {
         super(firstName, lastName, username, password);
     }
+
+    public int getGuestId() {
+        return guestId;
+    }
+
+    public void setGuestId(int guestId) {
+        this.guestId = guestId;
+    }
+
 
     public String getPasswordConfirm() {
         return passwordConfirm;
