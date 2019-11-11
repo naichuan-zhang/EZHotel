@@ -1,6 +1,6 @@
 package com.cyan.hotel.model;
 
-import com.cyan.hotel.enumeration.RoomTypes;
+import com.cyan.hotel.enumeration.RoomType;
 
 import javax.persistence.*;
 
