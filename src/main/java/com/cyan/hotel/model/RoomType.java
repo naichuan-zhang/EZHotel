@@ -9,6 +9,8 @@ import javax.persistence.*;
  * @create: 11-Nov-2019
  **/
 
+@Entity
+@Table(name = "roomType")
 public class RoomType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
