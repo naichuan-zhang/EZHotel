@@ -19,11 +19,11 @@
     <title>Login</title>
 </head>
 <body>
-    <%@ include file="../../resources/nav.jsp" %>
 
     <div class="container">
         <%--@elvariable id="loginForm" type="com.cyan.hotel.model.Guest"--%>
         <form class="form-register" method="post" action="${contextPath}/login">
+            <h2 class="form-header">Login</h2>
             <%--@elvariable id="message" type="java.lang.String"--%>
             <%--@elvariable id="error" type="java.lang.String"--%>
             <div class="form-group ${error != null ? 'has-error' : ''}">

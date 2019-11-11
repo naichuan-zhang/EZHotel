@@ -21,7 +21,6 @@
     <title>Register</title>
 </head>
 <body>
-    <%@ include file="../../resources/nav.jsp" %>
 
     <div class="container">
         <%--@elvariable id="guestForm" type="com.cyan.hotel.model.Guest"--%>
