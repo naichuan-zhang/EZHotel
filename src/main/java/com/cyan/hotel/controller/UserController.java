@@ -1,12 +1,12 @@
 package com.cyan.hotel.controller;
 
-import com.cyan.hotel.model.Guest;
+import com.cyan.hotel.repositoryService.LoginService;
+import com.cyan.hotel.repositoryService.RegistrationService;
+import com.cyan.hotel.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author: Naichuan Zhang
@@ -16,6 +16,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class UserController {
 
+//    @Autowired
+//    UserRepository userRepository;
+
+    @Autowired
+    LoginService loginService;
+
+    @Autowired
+    RegistrationService registrationService;
+
+    /*
     @PostMapping(value = "/register")
     public String register(@ModelAttribute("guestForm") Guest guestForm,
                            BindingResult bindingResult) {
@@ -26,12 +36,11 @@ public class UserController {
 
         // TODO: ERROR occurs, need to be changed
         return "redirect:/home";
-    }
+    }*/
 
-    @GetMapping(value = "/register")
-    public String register(Model model) {
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public String register() {
 
-        model.addAttribute("guestForm", new Guest());
 
         return "register";
     }

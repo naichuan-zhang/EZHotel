@@ -1,4 +1,4 @@
-package com.cyan.hotel.repository;
+package com.cyan.hotel.repositoryService;
 
 import org.springframework.stereotype.Component;
 

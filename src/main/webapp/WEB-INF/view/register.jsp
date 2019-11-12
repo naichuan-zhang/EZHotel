@@ -23,66 +23,33 @@
 <body>
 
     <div class="container">
-        <%--@elvariable id="guestForm" type="com.cyan.hotel.model.Guest"--%>
-        <form:form class="form-register" modelAttribute="guestForm" method="post">
-            <h2 class="form-header">Register</h2>
-            <spring:bind path="username">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="text" path="username" cssClass="form-control" placeholder="Username" autofocus="true"/>
-                    <form:errors path="username"/>
-                </div>
-            </spring:bind>
-            
-            <spring:bind path="password">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="password" path="password" class="form-control" placeholder="Password"/>
-                    <form:errors path="password"/>
-                </div>
-            </spring:bind>
-
-            <spring:bind path="passwordConfirm">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="password" path="passwordConfirm" class="form-control"
-                                placeholder="Confirm your password"/>
-                    <form:errors path="passwordConfirm"/>
-                </div>
-            </spring:bind>
-
-            <spring:bind path="phoneNumber">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="text" path="phoneNumber" class="form-control"
-                                placeholder="Phone Number"/>
-                    <form:errors path="phoneNumber"/>
-                </div>
-            </spring:bind>
-
-            <spring:bind path="firstName">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="text" path="firstName" class="form-control"
-                                placeholder="First Name"/>
-                    <form:errors path="firstName"/>
-                </div>
-            </spring:bind>
-
-            <spring:bind path="lastName">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="text" path="lastName" class="form-control"
-                                placeholder="Last Name"/>
-                    <form:errors path="lastName"/>
-                </div>
-            </spring:bind>
-
-            <spring:bind path="emailAddress">
-                <div class="form-group ${status.error ? 'has-error' : ''}">
-                    <form:input type="text" path="emailAddress" class="form-control"
-                                placeholder="Email Address"/>
-                    <form:errors path="emailAddress"/>
-                </div>
-            </spring:bind>
-
-            <button class="btn btn-primary btn-block" type="submit">Register</button>
-        </form:form>
+        <h2 class="form-header">Register</h2>
+        <form id="register" action="register" method="post">
+            <label>Username: ${user.username}</label>
+            <input type="text" name="username">
+            <br/>
+            <label>Password: ${user.password}</label>
+            <input type="text" name="password">
+            <br/>
+            <label>Confirm Password: ${user.confirmPassword}</label>
+            <input type="text" name="username">
+            <br/>
+            <label>Phone Number: ${user.phoneNumber}</label>
+            <input type="text" name="username">
+            <br/>
+            <label>First Name: ${user.firstName}</label>
+            <input type="text" name="username">
+            <br/>
+            <label>Last Name: ${user.lastName}</label>
+            <input type="text" name="username">
+            <br/>
+            <label>Email: ${user.email}</label>
+            <input type="text" name="username">
+            <br/>
+            <button class="btn btn-primary">Register</button>
+        </form>
     </div>
+
 
 </body>
 </html>

@@ -19,4 +19,6 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findUserByUsername(String username);
+//    long insertUser(String username, String password, String phoneNumber,
+//                    String firstName, String lastName, String email);
 }

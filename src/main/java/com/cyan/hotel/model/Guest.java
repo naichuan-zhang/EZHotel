@@ -1,6 +1,7 @@
 package com.cyan.hotel.model;
 
 import com.cyan.hotel.enumeration.LoyatyLevel;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 
 import javax.persistence.*;
 import java.util.List;

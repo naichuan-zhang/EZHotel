@@ -37,7 +37,7 @@
                 </label>
                 <span>${error}</span>
 
-                <button class="btn btn-primary btn-block" type="submit">Login Now</button>
+                <button class="btn btn-primary " type="submit">Login Now</button>
                 <p style="alignment: center">Haven't registered yet? Click here to <b><a href="${contextPath}/register">CREATE AN ACCOUNT</a></b></p>
             </div>
         </form>
