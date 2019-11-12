@@ -15,20 +15,11 @@ import org.springframework.web.bind.annotation.*;
  * @create: 02-Nov-2019
  **/
 
+
 @Controller
 public class UserController {
 
-//    @Autowired
-//    UserRepository userRepository;
-
-    @Autowired
-    LoginService loginService;
-
-    @Autowired
-    RegistrationService registrationService;
-
-
-   /* @PostMapping(value = "/register")
+    @PostMapping(value = "/register")
     public String register(@ModelAttribute("guestForm") Guest guestForm,
                            BindingResult bindingResult) {
 
@@ -38,11 +29,12 @@ public class UserController {
 
         // TODO: ERROR occurs, need to be changed
         return "redirect:/home";
-    }*/
+    }
 
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public String register() {
+    @GetMapping(value = "/register")
+    public String register(Model model) {
 
+        model.addAttribute("guestForm", new Guest());
 
         return "register";
     }
