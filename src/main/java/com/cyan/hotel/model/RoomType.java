@@ -1,6 +1,6 @@
 package com.cyan.hotel.model;
 
-import com.cyan.hotel.enumeration.RoomTypes;
+import com.cyan.hotel.enumeration.RoomStyle;
 
 import javax.persistence.*;
 
@@ -17,9 +17,9 @@ public class RoomType {
     @Column(name = "roomTypeId")
     private Long roomTypeId;
 
-    @Column(name = "roomType")
+    @Column(name = "roomStyle")
     @Enumerated(EnumType.STRING)
-    private RoomTypes roomType;
+    private RoomStyle roomStyle;
 
     @Column(name = "roomRate")
     private int roomRate;
@@ -41,16 +41,18 @@ public class RoomType {
         this.roomTypeId = roomTypeId;
     }
 
-    public RoomTypes getRoomType() {
-        return roomType;
-    }
 
-    public void setRoomType(RoomTypes roomType) {
-        this.roomType = roomType;
-    }
 
     public int getRoomRate() {
         return roomRate;
+    }
+
+    public RoomStyle getRoomStyle() {
+        return roomStyle;
+    }
+
+    public void setRoomStyle(RoomStyle roomStyle) {
+        this.roomStyle = roomStyle;
     }
 
     public void setRoomRate(int roomRate) {

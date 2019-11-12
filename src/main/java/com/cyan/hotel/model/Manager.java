@@ -14,9 +14,6 @@ public class Manager extends User {
     @OneToOne(mappedBy = "manager")
     private User user;
 
-    @Column(name = "managerId", nullable = false, insertable = false, updatable = false)
-    private int managerId;
-
     public Manager(String username, String password) {
         super();
     }
@@ -29,11 +26,4 @@ public class Manager extends User {
         this.user = user;
     }
 
-    public int getManagerId() {
-        return managerId;
-    }
-
-    public void setManagerId(int managerId) {
-        this.managerId = managerId;
-    }
 }

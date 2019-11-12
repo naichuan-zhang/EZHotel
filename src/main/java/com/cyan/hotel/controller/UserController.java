@@ -1,11 +1,13 @@
 package com.cyan.hotel.controller;
 
+import com.cyan.hotel.model.Guest;
 import com.cyan.hotel.repositoryService.LoginService;
 import com.cyan.hotel.repositoryService.RegistrationService;
 import com.cyan.hotel.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -25,8 +27,8 @@ public class UserController {
     @Autowired
     RegistrationService registrationService;
 
-    /*
-    @PostMapping(value = "/register")
+
+   /* @PostMapping(value = "/register")
     public String register(@ModelAttribute("guestForm") Guest guestForm,
                            BindingResult bindingResult) {
 
