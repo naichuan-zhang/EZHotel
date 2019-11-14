@@ -6,4 +6,5 @@ INSERT INTO USER VALUES
 ('1', 'John', 'Long', '1234', 'jlong', null, null);
 
 INSERT INTO ROOM VALUES
-(null, '200', '0', 'JuniorSuite', '1');
+(null, '200', '0', 'JuniorSuite', '1'),
+(null, '350', '0', 'Single', '2');
