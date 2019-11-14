@@ -1,8 +1,8 @@
 package com.cyan.hotel.enumeration;
 
 public enum RoomStyle {
-    Ensuit,
-    Single,
-    Double,
-    JuniorSuite
+    EXECUTIVE,
+    SINGLE,
+    DOUBLE,
+    JUNIORSUITE
 }
