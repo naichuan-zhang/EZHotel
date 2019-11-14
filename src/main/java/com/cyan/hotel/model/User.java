@@ -16,7 +16,7 @@ import javax.validation.constraints.Pattern;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "userId", updatable = false, nullable = false)
     private Long userId;
 

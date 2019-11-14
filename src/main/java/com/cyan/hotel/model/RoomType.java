@@ -3,6 +3,7 @@ package com.cyan.hotel.model;
 import com.cyan.hotel.enumeration.RoomStyle;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * @author: John Long
@@ -16,6 +17,9 @@ public class RoomType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "roomTypeId")
     private Long roomTypeId;
+
+    @OneToMany(mappedBy = "roomType", cascade = CascadeType.ALL)
+    private Set<Room> rooms;
 
     @Column(name = "roomStyle")
     @Enumerated(EnumType.STRING)

@@ -17,6 +17,10 @@ public class Room {
     @Column(name = "roomId")
     private Long roomId;
 
+    @ManyToOne
+    @JoinColumn
+    private RoomType roomType;
+
     @Column(name = "price")
     private Double price;
 
