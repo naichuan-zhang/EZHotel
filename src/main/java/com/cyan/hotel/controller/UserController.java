@@ -17,19 +17,12 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
-@RequestMapping("/")
 public class UserController {
 
-    @PostMapping(value = "/register")
-    public String register(@ModelAttribute("guestForm") Guest guestForm,
-                           BindingResult bindingResult) {
+    @GetMapping(value = "/registration")
+    public String register() {
 
-        if (bindingResult.hasErrors()) {
-            return "register";
-        }
-
-        // TODO: ERROR occurs, need to be changed
-        return "redirect:/home";
+        return "registration";
     }
 
     @GetMapping(value = "/register")
