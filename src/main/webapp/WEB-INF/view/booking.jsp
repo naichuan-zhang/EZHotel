@@ -19,10 +19,35 @@
 <body>
 
 <%@ include file="../../resources/nav.jsp" %>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-<div class="container">
-    <div class="starter-template">
-        <h1>Booking</h1>
+<br class="container">
+    <h1>Booking</h1>
+    <div class="select-room-type">
+        <form action="list" method="post">
+            Select a Room Type:&nbsp;
+            <select name="category">
+                <c:forEach items="${listCategory}" var="category">
+                    <option value="${category.id}"
+                            <c:if test="${category.id eq selectedCatId}">selected="selected"</c:if>
+                    >
+                            ${category.name}
+                    </option>
+                </c:forEach>
+            </select>
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+    <br>
+    <div class="pick-date">
+        <form action="showDate.jsp">
+            <label for="datepicker">Enter date:</label>
+            <input type="text" name="selDate" id="datepicker">
+
+            <input type="submit" value="Submit">
+        </form>
     </div>
 </div>
 
