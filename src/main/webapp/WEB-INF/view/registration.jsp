@@ -34,12 +34,12 @@
 <div id="error" style="float:right;color:red;visibility:hidden;">Inputs must not be empty.</div>
 <div style="margin-left:23%;">
     <p><span class="desc">First Name: </span><input id="firstName" type="text">
-        <span class="desc">Surname: </span><input id="surname" type="text"></p>
-    <span class="desc">Email: </span><input id="email" type="text">
+        <span class="desc">Surname: </span><input id="lastName" type="text"></p>
+<%--    <span class="desc">Email: </span><input id="email" type="text">--%>
     <br>
-    <p><span class="desc">User Name: </span><input id="username" type="text">
+    <p><span class="desc">User Name: </span><input id="userName" type="text">
         <span class="desc">Password: </span><input id="password" type="password"></p>
-    <button id="submit" onclick="attemptRegistration()">Create Account</button>
+    <button id="submit" onclick="registerUser()">Create Account</button>
     <p id="success" style="color:white;font-style:25px;visibility:hidden;"></p>
 </div>
 <div style="color:green;font-style:25px;visibility:hidden;">Account Successfully Created, Redirecting back to log in page..</div>

@@ -1,40 +1,28 @@
-var firstName;
-var surname;
-var email;
-var username;
-var password;
-var auth;
 
-$(document).ready(function(){
-    var url = new URL(window.location.href);
-    auth =  url.searchParams.get("auth");
-    if (auth === null){
-        document.location.href = '../pages/home.html';
+
+function registerUser() {
+    var firstName = $("#firstName").val().trim();
+    var lastName = $("#lastName").val().trim();
+    var userName = $("#userName").val().trim();
+    var uPassword = $("#uPassword").val().trim();
+
+
+
+    var user = {
+        "fName" : firstName,
+        "lName" : lastName,
+        "uName" : userName,
+        "uPassword" : uPassword
     }
-    getActivationStatus(function(response){
-        if (response !== "0"){
-            document.location.href = '../pages/home.html';
-        }
-    });
-});
 
-function createAccount(){
-    getActivationStatus(function(response){
-        if (response === "0"){
-            $.post({
-                url: "/frontend/SignInRegistrationServlet",
-                cache: false,
-                type : "POST",
-                data : {firstName : firstName,surname: surname, email: email, username: username, password: password, auth: auth}
-            },function(result){
-                if (result !== "failure"){
-                    $("#success").text("Account Created! Navigating back to the Home Page.");
-                    $("#success").css("visibility","visible");
-                    setTimeout(function(){
-                        document.location.href = '/frontend/pages/index.html';
-                    },4000);
-                }
-            });
+    $.ajax({
+        type: "POST",
+        contentType : 'application/json; charset=utf-8',
+        dataType : 'json',
+        url: "/registration",
+        data: JSON.stringify(user), // Note it is important
+        success :function(result) {
+            document.location.href = 'C:\\Users\\John Long\\eclipse-workspace\\EZHotel\\src\\main\\webapp\\WEB-INF\\view\\home.jsp';
         }
     });
 }
