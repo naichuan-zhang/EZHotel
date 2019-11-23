@@ -2,6 +2,7 @@ package com.cyan.hotel.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
+import java.util.List;
 
 /**
  * @author: Naichuan Zhang
@@ -16,18 +17,9 @@ import javax.validation.constraints.Pattern;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "userId", updatable = false, nullable = false)
     private Long userId;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "guestId", referencedColumnName = "userId")
-    private Guest guest;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "managerId", referencedColumnName = "userId")
-    private Manager manager;
-
 
     @Column(name = "firstName", nullable = false)
     @Pattern(regexp = "^[a-zA-z]{1,100}", message = "Letters Only!")

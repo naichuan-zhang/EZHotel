@@ -18,9 +18,6 @@ public class Guest extends User {
     @Transient
     private String passwordConfirm;
 
-    @OneToOne(mappedBy = "guest")
-    private User user;
-
     @Column(name = "emailAddress", nullable = false)
     private String emailAddress;
 

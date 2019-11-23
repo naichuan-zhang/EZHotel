@@ -11,19 +11,7 @@ import javax.persistence.*;
 @Table(name = "manager")
 public class Manager extends User {
 
-    @OneToOne(mappedBy = "manager")
-    private User user;
-
     public Manager(String username, String password) {
         super();
     }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
 }
