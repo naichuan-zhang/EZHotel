@@ -19,10 +19,10 @@ function registerUser() {
         type: "POST",
         contentType : 'application/json; charset=utf-8',
         dataType : 'json',
-        url: "/registration",
+        url: "/register/newUser",
         data: JSON.stringify(user), // Note it is important
         success :function(result) {
-            document.location.href = 'C:\\Users\\John Long\\eclipse-workspace\\EZHotel\\src\\main\\webapp\\WEB-INF\\view\\home.jsp';
+            document.location.href = 'C:\\Users\\John Long\\eclipse-workspace\\EZHotel\\src\\main\\webapp\\WEB-INF\\view\\home.html';
         }
     });
 }

@@ -8,6 +8,7 @@ import com.cyan.hotel.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,45 +21,20 @@ import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
-
 public class UserController {
 
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping(value = "/registration")
-    @ResponseBody
-    public String register(@RequestBody User user, HttpServletRequest request) {
-        Boolean success = true;
-
-        String firstName = user.getFirstName();
-        String lastName = user.getLastName();
-        String userName = user.getUsername();
-        String password = user.getPassword();
-
-        userRepository.save(user);
-
-        if(success == true) {return "success";}
-        else {return "failure";}
-
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    public String register(ModelMap modelMap) {
+        return "registration";
     }
 
-    @GetMapping(value = "/register")
-    public String register(Model model) {
-
-        model.addAttribute("guestForm", new Guest());
-
-        return "register";
-    }
-
-    @GetMapping(value = "/login")
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String login(Model model, String error, String logout) {
 
-        if (null != error)
-            model.addAttribute("error", "Invalid username or password!");
-        if (null != logout)
-            model.addAttribute("logout", "You have logged out successfully!");
 
-        return "login";
+        return "home";
     }
 }
