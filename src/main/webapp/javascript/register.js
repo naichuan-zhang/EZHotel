@@ -20,7 +20,7 @@ function registerUser() {
         contentType : 'application/json; charset=utf-8',
         dataType : 'json',
         url: "/register/newUser",
-        data: JSON.stringify(user), // Note it is important
+        data: JSON.stringify(user),
         success :function(result) {
             document.location.href = 'C:\\Users\\John Long\\eclipse-workspace\\EZHotel\\src\\main\\webapp\\WEB-INF\\view\\home.html';
         }

@@ -26,6 +26,9 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    LoginService loginService;
+
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String register(ModelMap modelMap) {
         return "registration";
@@ -37,4 +40,22 @@ public class UserController {
 
         return "home";
     }
+
+    @RequestMapping(value="/login", method = RequestMethod.GET)
+    public String showLoginPage(ModelMap model){
+        return "login";
+    }
+
+    @RequestMapping(value="/login", method = RequestMethod.POST)
+    public String showWelcomePage(ModelMap model, @RequestParam String name, @RequestParam String password){
+        boolean isValidUser = loginService.validateUser(name, password);
+        if (!isValidUser) {
+            model.put("errorMessage", "Invalid Credentials");
+            return "login";
+        }
+        model.put("name", name);
+        model.put("password", password);
+        return "home";
+    }
+
 }
