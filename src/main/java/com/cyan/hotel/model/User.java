@@ -17,8 +17,8 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "userId", updatable = false, nullable = false)
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    @Column(name = "userId")
     private Long userId;
 
     @Column(name = "firstName", nullable = false)
