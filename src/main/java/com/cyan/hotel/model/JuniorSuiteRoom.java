@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "juniorSuite")
-public class JuniorSuite extends Room {
+public class JuniorSuiteRoom extends Room {
 
     @Column(name = "price")
     private Double price;
@@ -19,7 +19,7 @@ public class JuniorSuite extends Room {
     @Column(name = "description")
     private String description;
 
-    public JuniorSuite() {
+    public JuniorSuiteRoom() {
         price = 200.00;
         description = "";
     }

@@ -43,13 +43,6 @@ public class User {
         this.password = builder.password;
     }
 
-//    public User(String firstName, String lastName, String username, String password) {
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.username = username;
-//        this.password = password;
-//    }
-
     public static Builder<?> builder() {
         return new Builder<User>() {
             @Override
