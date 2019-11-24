@@ -8,11 +8,7 @@ import javax.persistence.*;
  **/
 @Entity
 @Table(name = "executiveRoom")
-public class ExecutiveRoom implements Room {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long executiveRoomId;
+public class ExecutiveRoom extends Room {
 
     @Column(name = "price")
     private Double price;

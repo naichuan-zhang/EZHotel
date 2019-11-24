@@ -4,7 +4,7 @@ package com.cyan.hotel.model;
  * @author: Naichuan Zhang
  * @create: 24-Nov-2019
  **/
-public class RoomDecorator implements Room {
+public class RoomDecorator extends Room {
 
     private Room room;
 

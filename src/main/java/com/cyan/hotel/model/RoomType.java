@@ -18,8 +18,8 @@ public class RoomType {
     @Column(name = "roomTypeId")
     private Long roomTypeId;
 
-    @OneToMany(mappedBy = "roomType", cascade = CascadeType.ALL)
-    private Set<Room> rooms;
+//    @OneToMany(mappedBy = "roomType", cascade = CascadeType.ALL)
+//    private Set<Room> rooms;
 
     @Column(name = "roomStyle")
     @Enumerated(EnumType.STRING)
