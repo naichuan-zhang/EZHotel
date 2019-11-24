@@ -22,7 +22,15 @@ public class RegistrationServiceImpl implements RegistrationService{
 
         if(userRepository.findByUsername(username) == null){
             registrationValid = true;
-            User user = new User(firstName,lastName,username,password);
+//            User user = new User(firstName,lastName,username,password);
+
+            User user = User.builder()
+                    .firstName(firstName)
+                    .lastName(lastName)
+                    .username(username)
+                    .password(password)
+                    .build();
+
             userRepository.save(user);
         }else{
             registrationValid = false;
