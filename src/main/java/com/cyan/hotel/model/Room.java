@@ -5,6 +5,7 @@ import org.springframework.data.annotation.TypeAlias;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 
 /**
  * @author: Naichuan Zhang
@@ -16,7 +17,16 @@ public abstract class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "roomId")
     private Long roomId;
+
+    @Column(name = "roomStatus")
+    @Pattern(regexp = "^[01]")
+    private Integer roomStatus;
+
+    public Room() {
+        this.roomStatus = 0;
+    }
 
     abstract Double getPrice();
     abstract String getDescription();
@@ -28,4 +38,13 @@ public abstract class Room {
     public void setRoomId(Long roomId) {
         this.roomId = roomId;
     }
+
+    public Integer getRoomStatus() {
+        return roomStatus;
+    }
+
+    public void setRoomStatus(Integer roomStatus) {
+        this.roomStatus = roomStatus;
+    }
+
 }

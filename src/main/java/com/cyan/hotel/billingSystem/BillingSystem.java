@@ -5,8 +5,10 @@ package com.cyan.hotel.billingSystem;
  * @create: 12-Nov-2019
  **/
 
-public class BillingSystem {
-    public void updateBill() {
+public class BillingSystem implements Observer {
 
+    @Override
+    public void updateBill() {
+        // TODO: update bill
     }
 }

@@ -12,7 +12,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EnableJpaRepositories
 @EntityScan
-@ComponentScan(value = "com.cyan.hotel.model")
 public class HotelApplication extends SpringBootServletInitializer {
 
     @Override

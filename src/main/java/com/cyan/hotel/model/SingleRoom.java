@@ -7,9 +7,9 @@ import javax.persistence.*;
  * @create: 24-Nov-2019
  **/
 @Entity
-@Table(name = "executiveRoom")
+@Table(name = "Room")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class ExecutiveRoom extends Room {
+public class SingleRoom extends Room {
 
     @Column(name = "price")
     private Double price;
@@ -17,8 +17,8 @@ public class ExecutiveRoom extends Room {
     @Column(name = "description")
     private String description;
 
-    public ExecutiveRoom() {
-        price = 500.0;
+    public SingleRoom() {
+        price = 100.0;
         description = "";
     }
 
@@ -31,5 +31,5 @@ public class ExecutiveRoom extends Room {
     public String getDescription() {
         return description;
     }
-
 }
+

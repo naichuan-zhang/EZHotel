@@ -8,7 +8,7 @@ INSERT INTO USER VALUES
 ('1', 'John', 'Long', '1234', 'jlong');
 
 INSERT INTO EXECUTIVE_ROOM VALUES
-(NULL, 'desc', '150.0');
+(NULL, '0', 'desc', '150.0');
 
 -- INSERT INTO ROOM VALUES
 -- (null, '350', '0', 'JUNIORSUITE', '1'),
