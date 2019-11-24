@@ -36,6 +36,10 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    public User() {
+
+    }
+
     public User(Builder<?> builder) {
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;

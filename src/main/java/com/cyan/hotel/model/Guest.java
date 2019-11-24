@@ -35,6 +35,10 @@ public class Guest extends User {
     @OneToMany(mappedBy = "guest")
     private List<Payment> payments;
 
+    public Guest() {
+
+    }
+
     public Guest(Builder<?> builder) {
         super(builder);
         this.emailAddress = builder.emailAddress;

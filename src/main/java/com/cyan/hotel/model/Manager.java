@@ -11,6 +11,10 @@ import javax.persistence.*;
 @Table(name = "manager")
 public class Manager extends User {
 
+    public Manager() {
+
+    }
+
     public Manager(Builder<?> builder) {
         super(builder);
     }
