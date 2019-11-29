@@ -10,33 +10,13 @@ import javax.validation.constraints.Pattern;
  * @create: 05-Nov-2019
  **/
 
-// TODO: JOINED ? TABLE_PER_CLASS
-@Entity
-@Table(name = "user")
-@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
-    // TODO: IDENTITY ? TABLE
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "userId")
+
     private Long userId;
-
-    @Column(name = "firstName", nullable = false)
-    @Pattern(regexp = "^[a-zA-z]{1,100}", message = "Letters Only!")
     private String firstName;
-
-    @Column(name = "lastName", nullable = false)
-    @Pattern(regexp = "^[a-zA-z]{1,100}", message = "Letters Only!")
     private String lastName;
-
-    @Column(name = "username")
     private String username;
-
-    @Column(name = "password")
     private String password;
-
-//    @Transient
-//    private String passwordConfirm;
 
     public User() {
 

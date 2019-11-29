@@ -10,12 +10,7 @@ import java.util.Set;
  * @create: 11-Nov-2019
  **/
 
-@Entity
-@Table(name = "roomType")
 public class RoomType {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "roomTypeId")
     private Long roomTypeId;
 
 //    @OneToMany(mappedBy = "roomType", cascade = CascadeType.ALL)

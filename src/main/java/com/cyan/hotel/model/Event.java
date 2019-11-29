@@ -11,19 +11,9 @@ import java.util.Date;
  * @create: 07-Nov-2019
  **/
 
-@Entity
-@Table(name = "event")
 public class Event {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long eventId;
-
-    @Column(name = "eventDesc")
-    @Length(max = 500)
     private String eventDesc;
-
-    @Column(name = "eventDate")
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date eventDate;
 
     public Event() {
