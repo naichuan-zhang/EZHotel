@@ -6,9 +6,15 @@ package com.cyan.hotel.billingSystem;
  **/
 
 public class BillingSystem implements Observer {
+    int billAmt;
 
     @Override
     public void updateBill() {
-        // TODO: update bill
+        System.out.println("Bill Total: "+billAmt);
+    }
+
+    @Override
+    public void setSubject(Subject subj) {
+
     }
 }

@@ -5,7 +5,7 @@ INSERT INTO ROOM_TYPE VALUES
 (null,'3','junior suite room', '2', '250','DOUBLE');
 
 INSERT INTO USER VALUES
-(null , 'John', 'Long', '1234', 'jlong');
+('1','John', 'Long', '1234', 'jlong');
 
 INSERT INTO EXECUTIVE_ROOM VALUES
 (NULL, '0', 'desc', '150.0');
