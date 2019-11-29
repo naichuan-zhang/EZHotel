@@ -4,7 +4,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  * @author: Naichuan Zhang
@@ -13,7 +14,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "booking")
-public class Booking {
+public class Booking extends Observable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,16 +35,28 @@ public class Booking {
     @JoinColumn(name = "userId")
     private Guest guest;
 
+    private Observer observer;
+
     public Booking() {
 
+    }
+
+    public Observer getObserver() {
+        return observer;
     }
 
     public Integer getBookingTotal() {
         return bookingTotal;
     }
 
-    public void setBookingTotal(Integer bookingTotal) {
-        this.bookingTotal = bookingTotal;
+    public void setBookingTotal(Observer observer, Integer newBookingTotal) {
+        int result = bookingTotal.compareTo(newBookingTotal);
+        if(result==-1){
+            this.observer = observer;
+            this.bookingTotal = newBookingTotal;
+            setChanged();
+            notifyObservers();
+        }
     }
 
     public void setBookingId(Long bookingId) {
