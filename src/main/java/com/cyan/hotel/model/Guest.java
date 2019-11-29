@@ -12,14 +12,21 @@ import java.util.List;
  * @create: 02-Nov-2019
  **/
 
+@Entity
+@Table(name = "guest")
 public class Guest extends User {
 
+    @Column(name = "emailAddress", nullable = false)
     private String emailAddress;
 
+    @Column(name = "phoneNumber", nullable = false)
     private String phoneNumber;
 
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "loyaltyLevel")
     private LoyatyLevel loyatyLevel;
 
+    @OneToMany(mappedBy = "guest")
     private List<Payment> payments;
 
     public Guest() {

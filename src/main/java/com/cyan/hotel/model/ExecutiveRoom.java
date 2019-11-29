@@ -7,9 +7,14 @@ import javax.persistence.*;
  * @create: 24-Nov-2019
  **/
 
+@Entity
+@Table(name = "executiveRoom")
 public class ExecutiveRoom extends Room {
 
+    @Column(name = "price")
     private Double price;
+
+    @Column(name = "description")
     private String description;
 
     public ExecutiveRoom() {

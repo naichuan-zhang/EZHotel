@@ -7,9 +7,16 @@ import javax.persistence.*;
  * @create: 07-Nov-2019
  **/
 
+@Entity
+@Table(name = "discount")
 public class Discount {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "discountId")
     private Long discountId;
+
+    @Column(name = "discountPercentage")
     private Double discountPercentage;
 
     public Discount() {

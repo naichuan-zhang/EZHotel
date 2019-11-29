@@ -1,6 +1,7 @@
 package com.cyan.hotel.model;
 
 import com.cyan.hotel.enumeration.RoomStyle;
+import com.sun.javafx.beans.IDProperty;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.stereotype.Component;
 
@@ -12,10 +13,21 @@ import javax.validation.constraints.Pattern;
  * @create: 06-Nov-2019
  **/
 
+@Entity(name = "room")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Room {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "roomId")
     private Long roomId;
+
+    @Column(name = "roomStatus")
+    @Pattern(regexp = "^[01]")
     private Integer roomStatus;
+
+    @ManyToOne
+    @JoinColumn(name = "bookingId")
     private Booking booking;
 
     public Room() {
@@ -41,11 +53,11 @@ public abstract class Room {
         this.roomStatus = roomStatus;
     }
 
-//    public Booking getBooking() {
-//        return booking;
-//    }
-//
-//    public void setBooking(Booking booking) {
-//        this.booking = booking;
-//    }
+    public Booking getBooking() {
+        return booking;
+    }
+
+    public void setBooking(Booking booking) {
+        this.booking = booking;
+    }
 }

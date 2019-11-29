@@ -12,16 +12,27 @@ import java.util.Observer;
  * @create: 06-Nov-2019
  **/
 
+@Entity
+@Table(name = "booking")
 public class Booking  {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "bookingId")
     private Long bookingId;
 
+    @Column(name = "bookingDate")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date bookingDate;
 
+    @Column(name = "numberOfGuests")
     private Integer numberOfGuests;
 
+    @Column(name = "bookingTotal")
     private Integer bookingTotal;
 
+    @ManyToOne
+    @JoinColumn(name = "userId")
     private Guest guest;
 
 //    private Observer observer;
