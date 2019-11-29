@@ -7,8 +7,6 @@ import javax.persistence.*;
  * @create: 02-Nov-2019
  **/
 
-@Entity
-@Table(name = "manager")
 public class Manager extends User {
 
     public Manager() {

@@ -12,21 +12,10 @@ import javax.validation.constraints.Pattern;
  * @create: 06-Nov-2019
  **/
 
-@Entity(name = "room")
-@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Room {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "roomId")
     private Long roomId;
-
-    @Column(name = "roomStatus")
-    @Pattern(regexp = "^[01]")
     private Integer roomStatus;
-
-    @ManyToOne
-    @JoinColumn(name = "bookingId")
     private Booking booking;
 
     public Room() {

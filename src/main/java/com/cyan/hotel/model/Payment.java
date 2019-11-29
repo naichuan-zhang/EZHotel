@@ -11,30 +11,12 @@ import java.util.Date;
  * @create: 07-Nov-2019
  **/
 
-@Entity
-@Table(name = "payment")
 public class Payment {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "paymentId")
     private Long paymentId;
-
-    @Column(name = "paymentDate")
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date paymentDate;
-
-    @Enumerated(value = EnumType.STRING)
-    @Column(name = "payType")
     private PayType payType;
-
-    @Column(name = "paymentAmount")
     private Double paymentAmount;
-
-    @Column(name = "payeeName")
     private String payeeName;
-
-    @ManyToOne
-    @JoinColumn(name = "userId")
     private Guest guest;
 
     public Payment() {
