@@ -27,12 +27,23 @@ public class Booking {
     @Column(name = "numberOfGuests")
     private Integer numberOfGuests;
 
+    @Column(name = "bookingTotal")
+    private Integer bookingTotal;
+
     @ManyToOne
     @JoinColumn(name = "userId")
     private Guest guest;
 
     public Booking() {
 
+    }
+
+    public Integer getBookingTotal() {
+        return bookingTotal;
+    }
+
+    public void setBookingTotal(Integer bookingTotal) {
+        this.bookingTotal = bookingTotal;
     }
 
     public void setBookingId(Long bookingId) {
