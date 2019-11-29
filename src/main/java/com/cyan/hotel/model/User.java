@@ -8,17 +8,16 @@ import javax.validation.constraints.Pattern;
 /**
  * @author: Naichuan Zhang
  * @create: 05-Nov-2019
- *
- *
  **/
 
+// TODO: JOINED ? TABLE_PER_CLASS
 @Entity
 @Table(name = "user")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
-
+    // TODO: IDENTITY ? TABLE
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userId")
     private Long userId;
 
@@ -35,6 +34,9 @@ public class User {
 
     @Column(name = "password")
     private String password;
+
+//    @Transient
+//    private String passwordConfirm;
 
     public User() {
 
@@ -79,6 +81,10 @@ public class User {
     public String getPassword() {
         return password;
     }
+
+//    public String getPasswordConfirm() {
+//        return passwordConfirm;
+//    }
 
     public static abstract class Builder<T extends User> {
         private String firstName;

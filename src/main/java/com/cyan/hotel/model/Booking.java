@@ -4,6 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -27,9 +28,8 @@ public class Booking {
     @Column(name = "numberOfGuests")
     private Integer numberOfGuests;
 
-    @ManyToOne
-    @JoinColumn(name = "userId")
-    private Guest guest;
+    @OneToMany(mappedBy = "booking")
+    private List<Room> rooms;
 
     public Booking() {
 
@@ -57,13 +57,5 @@ public class Booking {
 
     public Date getBookingDate() {
         return bookingDate;
-    }
-
-    public Guest getGuest() {
-        return guest;
-    }
-
-    public void setGuest(Guest guest) {
-        this.guest = guest;
     }
 }

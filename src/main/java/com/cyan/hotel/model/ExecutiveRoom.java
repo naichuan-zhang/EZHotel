@@ -6,9 +6,9 @@ import javax.persistence.*;
  * @author: Naichuan Zhang
  * @create: 24-Nov-2019
  **/
+
 @Entity
 @Table(name = "executiveRoom")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class ExecutiveRoom extends Room {
 
     @Column(name = "price")

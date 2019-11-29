@@ -12,7 +12,8 @@ import javax.validation.constraints.Pattern;
  * @create: 06-Nov-2019
  **/
 
-@MappedSuperclass
+@Entity(name = "room")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Room {
 
     @Id
@@ -23,6 +24,10 @@ public abstract class Room {
     @Column(name = "roomStatus")
     @Pattern(regexp = "^[01]")
     private Integer roomStatus;
+
+    @ManyToOne
+    @JoinColumn(name = "bookingId")
+    private Booking booking;
 
     public Room() {
         this.roomStatus = 0;
@@ -47,4 +52,11 @@ public abstract class Room {
         this.roomStatus = roomStatus;
     }
 
+//    public Booking getBooking() {
+//        return booking;
+//    }
+//
+//    public void setBooking(Booking booking) {
+//        this.booking = booking;
+//    }
 }
