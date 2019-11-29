@@ -27,14 +27,8 @@ import javax.validation.Valid;
 @Controller
 public class UserController {
 
-//    @Autowired
-//    LoginService loginService;
-
     @Autowired
     private UserService userService;
-
-//    @Autowired
-//    RegistrationServiceImpl registrationService;
 
     @Autowired
     private UserValidator userValidator;

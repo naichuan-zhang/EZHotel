@@ -4,6 +4,7 @@ import com.cyan.hotel.exception.RoomNotFoundException;
 import com.cyan.hotel.model.Room;
 import com.cyan.hotel.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @create: 12-Nov-2019
  **/
 
+@Service
 public class RoomServiceImpl implements RoomService {
     @Autowired
     private RoomRepository roomRepository;
@@ -24,6 +26,11 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public List<Room> findAllRooms() {
-        return null;
+        return roomRepository.findAllRooms();
+    }
+
+    @Override
+    public List<Room> findAllAvailableRooms() {
+        return roomRepository.findAllAvailableRooms();
     }
 }
