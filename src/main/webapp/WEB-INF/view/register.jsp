@@ -9,6 +9,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -56,13 +57,13 @@
             </div>
         </spring:bind>
 
-<%--        <spring:bind path="passwordConfirm">--%>
-<%--            <div class="form-group ${status.error ? 'has-error' : ''}">--%>
-<%--                <form:input type="password" path="passwordConfirm" class="form-control"--%>
-<%--                            placeholder="Confirm your password"/>--%>
-<%--                <form:errors path="passwordConfirm"/>--%>
-<%--            </div>--%>
-<%--        </spring:bind>--%>
+        <spring:bind path="passwordConfirm">
+            <div class="form-group ${status.error ? 'has-error' : ''}">
+                <form:input type="password" path="passwordConfirm" class="form-control"
+                            placeholder="Confirm your password"/>
+                <form:errors path="passwordConfirm"/>
+            </div>
+        </spring:bind>
 
 <%--        <spring:bind path="emailAddress">--%>
 <%--            <div class="form-group ${status.error ? 'has-error' : ''}">--%>

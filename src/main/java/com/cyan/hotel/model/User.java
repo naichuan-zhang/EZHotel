@@ -22,11 +22,9 @@ public class User {
     private Long userId;
 
     @Column(name = "firstName", nullable = false)
-    @Pattern(regexp = "^[a-zA-z]{1,100}", message = "Letters Only!")
     private String firstName;
 
     @Column(name = "lastName", nullable = false)
-    @Pattern(regexp = "^[a-zA-z]{1,100}", message = "Letters Only!")
     private String lastName;
 
     @Column(name = "username")
@@ -35,8 +33,8 @@ public class User {
     @Column(name = "password")
     private String password;
 
-//    @Transient
-//    private String passwordConfirm;
+    @Transient
+    private String passwordConfirm;
 
     public User() {
 
@@ -70,6 +68,10 @@ public class User {
         return firstName;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
     public String getLastName() {
         return lastName;
     }
@@ -82,9 +84,25 @@ public class User {
         return password;
     }
 
-//    public String getPasswordConfirm() {
-//        return passwordConfirm;
-//    }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
 
     public static abstract class Builder<T extends User> {
         private String firstName;

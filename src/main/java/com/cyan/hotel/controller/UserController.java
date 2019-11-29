@@ -27,9 +27,6 @@ import javax.validation.Valid;
 @Controller
 public class UserController {
 
-    @Autowired
-    private UserRepository userRepository;
-
 //    @Autowired
 //    LoginService loginService;
 
@@ -50,7 +47,7 @@ public class UserController {
 
     @PostMapping(value = "/register")
     public String register(@ModelAttribute("userForm") User userForm, BindingResult result) {
-        //userValidator.validate(guestForm, result);
+        userValidator.validate(userForm, result);
 
         if (result.hasErrors()) {
             return "register";
@@ -58,29 +55,8 @@ public class UserController {
 
         userService.save(userForm);
 
-        return "redirect:/home";
+        return "redirect:/";
     }
-
-//    @RequestMapping(value = "/registration", method = RequestMethod.GET)
-//    public String register(ModelMap modelMap) {
-//        return "registration";
-//    }
-//
-//    @RequestMapping(value = "/registration", method = RequestMethod.POST)
-//    public String registerNewUser(ModelMap model, @RequestParam String firstName, @RequestParam String lastName,
-//                                  @RequestParam String username, @RequestParam String email, @RequestParam String password){
-//        boolean canRegister = registrationService.validateRegistration(firstName,lastName,username,password,email);
-//        if (!canRegister) {
-//            model.put("errorMessage", "User already exists");
-//            return "registration";
-//        }
-//        model.put("firstName", firstName);
-//        model.put("lastName", lastName);
-//        model.put("username", username);
-//        model.put("email", email);
-//        model.put("password", password);
-//        return "home";
-//    }
 
     @RequestMapping(value="/login", method = RequestMethod.GET)
     public String showLoginPage(ModelMap model){
