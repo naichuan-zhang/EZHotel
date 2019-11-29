@@ -10,7 +10,7 @@ import java.util.Observer;
  * @create: 12-Nov-2019
  **/
 
-public class BillingSystem implements Observer {
+public class BillingSystem  {
     Booking observable;
     int bookingTotal;
 
@@ -21,14 +21,14 @@ public class BillingSystem implements Observer {
 
 
 
-    @Override
-    public void update(Observable o, Object arg) {
-        this.observable = (Booking) observable;
-        String name = this.observable.getObserver().toString();
-
-        if (o == observable) {
-            System.out.println("Booking total changed to: " + observable.getBookingTotal());
-            bookingTotal += observable.getBookingTotal();
-        }
-    }
+//    @Override
+//    public void update(Observable o, Object arg) {
+//        this.observable = (Booking) observable;
+//        String name = this.observable.getObserver().toString();
+//
+//        if (o == observable) {
+//            System.out.println("Booking total changed to: " + observable.getBookingTotal());
+//            bookingTotal += observable.getBookingTotal();
+//        }
+//    }
 }

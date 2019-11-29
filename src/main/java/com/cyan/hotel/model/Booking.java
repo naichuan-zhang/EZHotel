@@ -14,7 +14,7 @@ import java.util.Observer;
 
 @Entity
 @Table(name = "booking")
-public class Booking extends Observable {
+public class Booking  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,29 +35,29 @@ public class Booking extends Observable {
     @JoinColumn(name = "userId")
     private Guest guest;
 
-    private Observer observer;
+//    private Observer observer;
 
     public Booking() {
 
     }
 
-    public Observer getObserver() {
-        return observer;
-    }
+//    public Observer getObserver() {
+//        return observer;
+//    }
 
     public Integer getBookingTotal() {
         return bookingTotal;
     }
-
-    public void setBookingTotal(Observer observer, Integer newBookingTotal) {
-        int result = bookingTotal.compareTo(newBookingTotal);
-        if(result==-1){
-            this.observer = observer;
-            this.bookingTotal = newBookingTotal;
-            setChanged();
-            notifyObservers();
-        }
-    }
+//
+//    public void setBookingTotal(Observer observer, Integer newBookingTotal) {
+//        int result = bookingTotal.compareTo(newBookingTotal);
+//        if(result==-1){
+//            this.observer = observer;
+//            this.bookingTotal = newBookingTotal;
+//            setChanged();
+//            notifyObservers();
+//        }
+//    }
 
     public void setBookingId(Long bookingId) {
         this.bookingId = bookingId;
