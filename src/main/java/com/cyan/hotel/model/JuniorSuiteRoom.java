@@ -1,5 +1,6 @@
 package com.cyan.hotel.model;
 
+import com.cyan.hotel.enumeration.RoomStyle;
 import org.springframework.data.annotation.TypeAlias;
 
 import javax.persistence.Column;
@@ -24,6 +25,7 @@ public class JuniorSuiteRoom extends Room {
     public JuniorSuiteRoom() {
         price = 200.0;
         description = "This is a Junior Suite Room";
+        this.setRoomType("JUNIORSUITE");
     }
 
     @Override

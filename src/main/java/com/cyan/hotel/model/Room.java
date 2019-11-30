@@ -30,6 +30,9 @@ public abstract class Room {
     @JoinColumn(name = "bookingId")
     private Booking booking;
 
+    @Column(name = "roomType")
+    private String roomType;
+
     public Room() {
         this.roomStatus = 0;
     }
@@ -59,5 +62,13 @@ public abstract class Room {
 
     public void setBooking(Booking booking) {
         this.booking = booking;
+    }
+
+    public String getRoomType() {
+        return roomType;
+    }
+
+    public void setRoomType(String roomType) {
+        this.roomType = roomType;
     }
 }

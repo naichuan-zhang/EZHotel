@@ -9,4 +9,5 @@ public interface RoomService {
     Room findRoomByRoomId(Long roomId);
     List<Room> findAllRooms();
     List<Room> findAllAvailableRooms();
+    List<Room> getRoomsByRoomType(String roomType);
 }

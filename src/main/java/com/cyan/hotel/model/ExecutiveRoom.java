@@ -1,5 +1,7 @@
 package com.cyan.hotel.model;
 
+import com.cyan.hotel.enumeration.RoomStyle;
+
 import javax.persistence.*;
 
 /**
@@ -20,6 +22,7 @@ public class ExecutiveRoom extends Room {
     public ExecutiveRoom() {
         price = 500.0;
         description = "This is an Executive Room";
+        this.setRoomType("EXECUTIVE");
     }
 
     @Override

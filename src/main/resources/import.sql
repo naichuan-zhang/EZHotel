@@ -8,13 +8,13 @@ INSERT INTO GUEST VALUES
 ('znc@gmail.com', null, '123456', '2');
 
 INSERT INTO ROOM VALUES
-(null, '0', null),
-(null, '0', null),
-(null, '0', null),
-(null, '0', null),
-(null, '0', null),
-(null, '0', null),
-(null, '0', null);
+(null, '0', 'EXECUTIVE', null),
+(null, '0', 'EXECUTIVE', null),
+(null, '0', 'SINGLE', null),
+(null, '0', 'SINGLE', null),
+(null, '0', 'DOUBLE', null),
+(null, '0', 'DOUBLE', null),
+(null, '0', 'JUNIORSUITE', null);
 
 INSERT INTO EXECUTIVE_ROOM VALUES
 ('This is an Executive Room', 500.0, '1'),

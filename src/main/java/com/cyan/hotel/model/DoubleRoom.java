@@ -1,5 +1,7 @@
 package com.cyan.hotel.model;
 
+import com.cyan.hotel.enumeration.RoomStyle;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -20,6 +22,7 @@ public class DoubleRoom extends Room {
     public DoubleRoom() {
         price = 200.0;
         description = "Double Room";
+        this.setRoomType("DOUBLE");
     }
 
     @Override

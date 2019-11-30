@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,8 +27,9 @@
     </div>
 </div>
 
-<form name="">
-    <select name="roomTypesList">
+<%--@elvariable id="roomType" type="java.lang.String"--%>
+<form method="GET" action="${pageContext.request.contextPath}/room/show">
+    <select name="roomTypesList" id="roomTypesId">
         <option></option>
         <%--@elvariable id="roomTypesList" type="com.cyan.hotel.enumeration.RoomStyle"--%>
         <c:if test="${not empty roomTypesList}">
@@ -38,12 +40,6 @@
         <input type="submit" value="Select"/>
     </select>
 </form>
-<%
-    String type = request.getParameter("roomTypesList");
-    if (type != null) {
-
-    }
-%>
 
 <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="../../resources/main.js"></script>
