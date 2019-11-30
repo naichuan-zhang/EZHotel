@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <c:url value="/main/webapp/resources/main.css" var="jstlCss" />
     <link href="${jstlCss}" rel="stylesheet" />
     <title>Booking</title>
@@ -26,8 +26,31 @@
 
 <div class="container">
     <h1>Booking</h1>
-
 </div>
+
+<form method="get" action="${pageContext.request.contextPath}/booking/">
+    <table id="roomDetailsTable" class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Room Id</th>
+                <th>Room Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <p>Booking Details: </p>
+            <c:set var="i" value="1"/>
+            <%--@elvariable id="room" type="com.cyan.hotel.model.Room"--%>
+                <tr>
+                    <td>${room.getRoomId()}</td>
+                    <td>${room.getDescription()}</td>
+                    <td>${room.getPrice()}</td>
+                </tr>
+        </tbody>
+    </table>
+    <input class="btn btn-primary" id="confirm" value="Confirm Booking">
+    <input class="btn btn-primary" id="cancel" value="Cancel" onclick="location.href='/room'">
+</form>
 
 <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="../../resources/main.js"></script>

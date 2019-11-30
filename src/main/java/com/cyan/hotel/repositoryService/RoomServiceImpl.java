@@ -18,10 +18,17 @@ public class RoomServiceImpl implements RoomService {
     @Autowired
     private RoomRepository roomRepository;
 
+//    @Override
+//    public Room getRoomByRoomId(Long roomId) {
+////        return roomRepository.findById(roomId)
+////                .orElseThrow(()-> new RoomNotFoundException(roomId));
+//        return roomRepository.findRoomByRoomId(roomId);
+//    }
+
     @Override
     public Room findRoomByRoomId(Long roomId) {
-        return roomRepository.findById(roomId)
-                .orElseThrow(()-> new RoomNotFoundException(roomId));
+        return roomRepository.getRoomByRoomId(roomId);
+        //return roomRepository.findById(roomId).orElseThrow(() -> new RoomNotFoundException(roomId));
     }
 
     @Override
