@@ -1,16 +1,15 @@
 package com.cyan.hotel.repositoryService;
 
-import com.cyan.hotel.repository.BookingRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.cyan.hotel.model.Booking;
+
+import java.util.Date;
 
 /**
- * @author: John Long
- * @create: 28-Nov-2019
+ * @author: Naichuan Zhang
+ * @create: 30-Nov-2019
  **/
 
-public class BookingService {
-    @Autowired
-    BookingRepository bookingRepository;
+public interface BookingService {
 
-
+    void insertBooking(String bookingDate, Integer numberOfGuests, Integer bookingTotal, String username);
 }

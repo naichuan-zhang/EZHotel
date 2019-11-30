@@ -1,18 +1,19 @@
 package com.cyan.hotel.controller;
 
+import com.cyan.hotel.model.Booking;
 import com.cyan.hotel.model.Room;
-import com.cyan.hotel.model.RoomType;
+import com.cyan.hotel.model.User;
+import com.cyan.hotel.repositoryService.BookingService;
+import com.cyan.hotel.repositoryService.BookingServiceImpl;
 import com.cyan.hotel.repositoryService.RoomService;
+import com.cyan.hotel.repositoryService.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @author: Naichuan Zhang
@@ -24,6 +25,12 @@ public class BookingController {
 
     @Autowired
     private RoomService roomService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private BookingService bookingService;
 
 //    @GetMapping(value = "/booking")
 //    public String booking() {
@@ -43,8 +50,19 @@ public class BookingController {
     @GetMapping(value = "/booking/user/{username}")
     public String getUsername(@PathVariable String username, Model model) {
 
-        return "redirect:/booking/success";
+        //User user = userService.findByUsername(username);
+        //Long userId = user.getUserId();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date();
+        bookingService.insertBooking(formatter.format(date), 1, 100, username);
+        return "redirect:/booking/success/";
     }
+
+    @GetMapping(value = "booking/success/")
+    public String success() {
+        return "home";
+    }
+
 
 //    @RequestMapping(method = RequestMethod.GET)
 //    public String initForm(Model model) {

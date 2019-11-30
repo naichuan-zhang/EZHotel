@@ -3,6 +3,7 @@ package com.cyan.hotel.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.Date;
 import java.util.Observable;
 import java.util.Observer;
@@ -22,8 +23,8 @@ public class Booking  {
     private Long bookingId;
 
     @Column(name = "bookingDate")
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date bookingDate;
+//    @Pattern(regexp = "dd/MM/yyyy")
+    private String bookingDate;
 
     @Column(name = "numberOfGuests")
     private Integer numberOfGuests;
@@ -33,7 +34,7 @@ public class Booking  {
 
     @ManyToOne
     @JoinColumn(name = "userId")
-    private Guest guest;
+    private User user;
 
     @Transient
     private Observer observer;
@@ -44,10 +45,6 @@ public class Booking  {
 
     public Observer getObserver() {
         return observer;
-    }
-
-    public Integer getBookingTotal() {
-        return bookingTotal;
     }
 
 //    public void setBookingTotal(Observer observer, Integer newBookingTotal) {
@@ -68,7 +65,7 @@ public class Booking  {
         return bookingId;
     }
 
-    public void setBookingDate(Date bookingDate) {
+    public void setBookingDate(String bookingDate) {
         this.bookingDate = bookingDate;
     }
 
@@ -80,15 +77,23 @@ public class Booking  {
         this.numberOfGuests = numberOfGuests;
     }
 
-    public Date getBookingDate() {
+    public String getBookingDate() {
         return bookingDate;
     }
 
-    public Guest getGuest() {
-        return guest;
+    public User getUser() {
+        return user;
     }
 
-    public void setGuest(Guest guest) {
-        this.guest = guest;
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setBookingTotal(Integer bookingTotal) {
+        this.bookingTotal = bookingTotal;
+    }
+
+    public Integer getBookingTotal() {
+        return bookingTotal;
     }
 }
