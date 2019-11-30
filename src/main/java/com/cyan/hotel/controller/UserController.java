@@ -67,6 +67,19 @@ public class UserController {
         return "home";
     }
 
+
+//    @PostMapping(value="/login")
+//    public String login(@RequestAttribute("username") String username, @RequestAttribute("password") String password, ModelMap model, BindingResult result){
+//        userValidator.validateLogin(result, username, password);
+//        if (result.hasErrors()) {
+////            model.addAttribute("errorMessage", "Invalid Credentials");
+//            return "login";
+//        }
+//        model.addAttribute("username", username);
+//        model.addAttribute("login", "true");
+//
+//        return "home";
+//    }
     @PostMapping(value = "/")
     public String logout(ModelMap model) {
         model.addAttribute("logout", "true");

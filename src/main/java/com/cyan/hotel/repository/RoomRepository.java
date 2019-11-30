@@ -18,4 +18,6 @@ public interface RoomRepository extends JpaRepository<Room, Long> {
 
     @Query(value = "select r from Room r where r.roomStatus = 0", nativeQuery = true)
     List<Room> findAllAvailableRooms();
+
+
 }

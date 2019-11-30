@@ -35,20 +35,21 @@ public class Booking  {
     @JoinColumn(name = "userId")
     private Guest guest;
 
-//    private Observer observer;
+    @Transient
+    private Observer observer;
 
     public Booking() {
 
     }
 
-//    public Observer getObserver() {
-//        return observer;
-//    }
+    public Observer getObserver() {
+        return observer;
+    }
 
     public Integer getBookingTotal() {
         return bookingTotal;
     }
-//
+
 //    public void setBookingTotal(Observer observer, Integer newBookingTotal) {
 //        int result = bookingTotal.compareTo(newBookingTotal);
 //        if(result==-1){
