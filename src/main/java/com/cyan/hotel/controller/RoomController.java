@@ -1,6 +1,7 @@
 package com.cyan.hotel.controller;
 
 import com.cyan.hotel.enumeration.RoomStyle;
+import com.cyan.hotel.model.ExecutiveRoom;
 import com.cyan.hotel.model.Room;
 import com.cyan.hotel.model.RoomType;
 import com.cyan.hotel.repositoryService.RoomService;
@@ -39,12 +40,10 @@ public class RoomController {
     @GetMapping(value = "/room/show/{roomType}")
     public String getRoomType(@PathVariable String roomType, Model model) {
 
-        System.out.println(roomType);
         List<Room> roomList = roomService.getRoomsByRoomType(roomType);
         model.addAttribute("roomList", roomList);
         model.addAttribute("roomType", roomType);
-
-        return "room";
+        return "/room";
     }
 
     @GetMapping(value = "/room/show")
@@ -54,7 +53,7 @@ public class RoomController {
             return "redirect:/room/show/" + roomType;
         }
 
-        return "room";
+        return "/room";
     }
 
     private List<RoomStyle> getRoomTypes() {

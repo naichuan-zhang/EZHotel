@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.cyan.hotel.model.Room" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Mattias Chang
   Date: 11/2/2019
@@ -40,6 +41,29 @@
         <input type="submit" value="Select"/>
     </select>
 </form>
+
+<%--@elvariable id="roomList" type="java.util.List"--%>
+<form:form method="post" action="" modelAttribute="roomList">
+    <table id="roomsTable" class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Room Id</th>
+                <th>Price</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:set var="i" value="1"/>
+            <c:forEach items="${roomList}" var="room">
+                <tr>
+                    <td>${roomList.get(i).getRoomId()}</td>
+                    <td>${roomList.get(i).getPrice()}</td>
+                    <td>${roomList.get(i).getDescription()}</td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
+</form:form>
 
 <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="../../resources/main.js"></script>
