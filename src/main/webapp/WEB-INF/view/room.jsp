@@ -53,6 +53,7 @@
                 <th>Room Id</th>
                 <th>Price</th>
                 <th>Description</th>
+                <th>Book</th>
             </tr>
         </thead>
         <tbody>
@@ -62,6 +63,16 @@
                     <td>${roomList.get(i).getRoomId()}</td>
                     <td>${roomList.get(i).getPrice()}</td>
                     <td>${roomList.get(i).getDescription()}</td>
+                    <%-- when roomStatus is 0, room has been booked --%>
+                    <c:if test="${roomList.get(i).getRoomStatus() == 0}">
+                        <td><input class="btn btn-primary" type="button" value="Book Now" onclick="function openPage() {
+                            location.href='/booking/' + '${roomList.get(i).getRoomId()}';
+                        }
+                        openPage()"></td>
+                    </c:if>
+                    <c:if test="${roomList.get(i).getRoomStatus() == 1}">
+                        <td><input class="btn btn-primary" type="button" value="Book Now" disabled></td>
+                    </c:if>
                 </tr>
             </c:forEach>
         </tbody>

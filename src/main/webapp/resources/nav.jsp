@@ -10,7 +10,6 @@
                 <li class="active"><a href="${pageContext.request.contextPath}/">Home</a></li>
                 <li><a href="${pageContext.request.contextPath}/room">Room</a></li>
                 <li><a href="${pageContext.request.contextPath}/event">Event</a></li>
-                <li><a href="${pageContext.request.contextPath}/booking">Booking</a></li>
                 <li><a href="${pageContext.request.contextPath}/contact">Contact</a></li>
                 <li><a href="${pageContext.request.contextPath}/about">About</a></li>
             </ul>
