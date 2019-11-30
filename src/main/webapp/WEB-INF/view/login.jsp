@@ -16,12 +16,11 @@
             <br>
         <input type="submit" />
             <%
-                if(null!=request.getAttribute("errorMessage"))
-                {
-                    out.println(request.getAttribute("errorMessage"));
-                    out.println("<p> Error logging in!! </p>");
-                }
-
+//                if(null!=request.getAttribute("errorMessage"))
+//                {
+//                    out.println(request.getAttribute("errorMessage"));
+//                    out.println("<p> Error logging in!! </p>");
+//                }
             %>
 
         </form>

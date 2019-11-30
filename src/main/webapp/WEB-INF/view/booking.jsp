@@ -48,7 +48,7 @@
                 </tr>
         </tbody>
     </table>
-    <input class="btn btn-primary" id="confirm" value="Confirm Booking">
+    <input class="btn btn-primary" id="confirm" value="Confirm Booking" onclick="location.href='/booking/user/${sessionScope.username}'">
     <input class="btn btn-primary" id="cancel" value="Cancel" onclick="location.href='/room'">
 </form>
 

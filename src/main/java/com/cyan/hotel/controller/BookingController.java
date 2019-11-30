@@ -25,6 +25,11 @@ public class BookingController {
     @Autowired
     private RoomService roomService;
 
+//    @GetMapping(value = "/booking")
+//    public String booking() {
+//        return "booking";
+//    }
+
     @GetMapping(value = "/booking/{roomId}")
     public String getRoomIdForBooking(@PathVariable Long roomId, Model model) {
         Room room = roomService.findRoomByRoomId(roomId);
@@ -33,6 +38,12 @@ public class BookingController {
         model.addAttribute("roomId", roomId);
 
         return "booking";
+    }
+
+    @GetMapping(value = "/booking/user/{username}")
+    public String getUsername(@PathVariable String username, Model model) {
+
+        return "redirect:/booking/success";
     }
 
 //    @RequestMapping(method = RequestMethod.GET)

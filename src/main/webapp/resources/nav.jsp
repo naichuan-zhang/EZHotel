@@ -14,11 +14,13 @@
                 <li><a href="${pageContext.request.contextPath}/about">About</a></li>
             </ul>
             <div id="loginAndRegister">
+                <form action="" method="get">
                 <%--@elvariable id="login" type="java.lang.String"--%>
                 <c:if test="${login == 'true'}">
                     <ul class="nav navbar-nav navbar-right">
                         <li><p style="color: #cccccc">Welcome <%--@elvariable id="username" type="java.lang.String"--%>
                             <c:out value="${username}"/>!</p></li>
+                        <c:set var="username" scope="session" value="${username}"/>
                         <li><button type="button" class="btn btn-link" onclick="location.href='/home'">Logout</button></li>
                     </ul>
                 </c:if>
@@ -28,6 +30,7 @@
                         <li><button type="button" class="btn btn-primary" onclick="location.href='/login'">Login</button></li>
                     </ul>
                 </c:if>
+                </form>
             </div>
         </div>
     </div>
