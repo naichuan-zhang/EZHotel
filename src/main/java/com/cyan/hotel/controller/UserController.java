@@ -66,4 +66,10 @@ public class UserController {
 
         return "home";
     }
+
+    @PostMapping(value = "/")
+    public String logout(ModelMap model) {
+        model.addAttribute("logout", "true");
+        return "home";
+    }
 }
