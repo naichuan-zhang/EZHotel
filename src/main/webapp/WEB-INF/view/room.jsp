@@ -26,16 +26,24 @@
     </div>
 </div>
 
-<label>
+<form name="">
     <select name="roomTypesList">
+        <option></option>
         <%--@elvariable id="roomTypesList" type="com.cyan.hotel.enumeration.RoomStyle"--%>
         <c:if test="${not empty roomTypesList}">
             <c:forEach var="roomType" items="${roomTypesList}">
-                <option>${roomType}</option>
+                <option value="${roomType}">${roomType}</option>
             </c:forEach>
         </c:if>
+        <input type="submit" value="Select"/>
     </select>
-</label>
+</form>
+<%
+    String type = request.getParameter("roomTypesList");
+    if (type != null) {
+
+    }
+%>
 
 <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="../../resources/main.js"></script>

@@ -36,13 +36,6 @@ public class RoomController {
     }
 
     private List<RoomStyle> getRoomTypes() {
-        List<RoomStyle> roomTypes =
-                new ArrayList<RoomStyle>(EnumSet.allOf(RoomStyle.class));
-        return roomTypes;
+        return new ArrayList<RoomStyle>(EnumSet.allOf(RoomStyle.class));
     }
-
-//    @RequestMapping(value = "/roomId")
-//    public String getRoomId(@RequestParam("roomId") Long roomId) {
-//        return "returned Room with id: " + roomId;
-//    }
 }

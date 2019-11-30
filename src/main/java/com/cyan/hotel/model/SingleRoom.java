@@ -11,15 +11,15 @@ import javax.persistence.Table;
 @Table
 @Entity(name = "singleRoom")
 public class SingleRoom extends Room {
-    @Column(name = "price")
+    @Column(name = "price", columnDefinition = "Decimal(10,2) default '150.0'")
     private Double price;
 
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "varchar(100) default 'This is a Single Room'")
     private String description;
 
     public SingleRoom() {
         price = 150.0;
-        description = "Single Room";
+        description = "This is Single Room";
     }
 
     @Override

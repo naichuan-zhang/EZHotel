@@ -22,7 +22,7 @@ public abstract class Room {
     @Column(name = "roomId")
     private Long roomId;
 
-    @Column(name = "roomStatus")
+    @Column(name = "roomStatus", columnDefinition = "int default 0")
     @Pattern(regexp = "^[01]")
     private Integer roomStatus;
 

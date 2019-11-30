@@ -11,10 +11,10 @@ import javax.persistence.Table;
 @Table
 @Entity(name = "DoubleRoom")
 public class DoubleRoom extends Room {
-    @Column(name = "price")
+    @Column(name = "price", columnDefinition = "Decimal(10,2) default '200.0'")
     private Double price;
 
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "varchar(100) default 'This is a Double Room'")
     private String description;
 
     public DoubleRoom() {

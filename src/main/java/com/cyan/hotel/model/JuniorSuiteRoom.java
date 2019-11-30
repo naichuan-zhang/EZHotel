@@ -15,10 +15,10 @@ import javax.persistence.Table;
 @Table(name = "juniorSuiteRoom")
 public class JuniorSuiteRoom extends Room {
 
-    @Column(name = "price")
+    @Column(name = "price", columnDefinition = "Decimal(10,2) default '200.0'")
     private Double price;
 
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "varchar(100) default 'This is a Junior Suite Room'")
     private String description;
 
     public JuniorSuiteRoom() {
