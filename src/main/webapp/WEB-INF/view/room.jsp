@@ -13,7 +13,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+<%--    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />--%>
+    <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../../resources/main.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     <c:url value="/main/webapp/resources/main.css" var="jstlCss" />
     <link href="${jstlCss}" rel="stylesheet" />
     <title>Room</title>
@@ -65,7 +68,6 @@
     </table>
 </form:form>
 
-<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="../../resources/main.js"></script>
+
 </body>
 </html>

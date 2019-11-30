@@ -30,9 +30,16 @@ public class RoomController {
     @GetMapping(value = "/room")
     public ModelAndView show() {
         List<RoomStyle> roomTypes = getRoomTypes();
+        List<String> roomsList = new ArrayList<String>();
+        roomsList.add("1");
+        roomsList.add("2");
+        roomsList.add("3");
+        roomsList.add("4");
+        roomsList.add("5");
 
         ModelAndView model = new ModelAndView("room");
         model.addObject("roomTypesList", roomTypes);
+        model.addObject("room", roomsList);
 
         return model;
     }
