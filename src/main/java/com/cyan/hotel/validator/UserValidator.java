@@ -43,4 +43,18 @@ public class UserValidator implements Validator {
             errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
         }
     }
+
+    public void validateLogin(Errors errors, String username, String password){
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "Cannot be empty");        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "Cannot be empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Cannot be empty");        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "Cannot be empty");
+
+        if (userService.findByUsername(username) == null){
+            errors.rejectValue("username", "User does not exist");
+        }else{
+            User user = userService.findByUsername(username);
+            if(!user.getPassword().equals(password)){
+                errors.rejectValue("password", "Password incorrect");
+            }
+        }
+    }
 }
