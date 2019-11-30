@@ -26,6 +26,17 @@
     </div>
 </div>
 
+<label>
+    <select name="roomTypesList">
+        <%--@elvariable id="roomTypesList" type="com.cyan.hotel.enumeration.RoomStyle"--%>
+        <c:if test="${not empty roomTypesList}">
+            <c:forEach var="roomType" items="${roomTypesList}">
+                <option>${roomType}</option>
+            </c:forEach>
+        </c:if>
+    </select>
+</label>
+
 <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="../../resources/main.js"></script>
 </body>

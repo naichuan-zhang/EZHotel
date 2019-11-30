@@ -1,15 +1,19 @@
 package com.cyan.hotel.model;
 
-import javax.persistence.*;
+import org.springframework.data.annotation.TypeAlias;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * @author: Naichuan Zhang
- * @create: 24-Nov-2019
+ * @create: 30-Nov-2019
  **/
 
 @Entity
-@Table(name = "executiveRoom")
-public class ExecutiveRoom extends Room {
+@Table(name = "juniorSuiteRoom")
+public class JuniorSuiteRoom extends Room {
 
     @Column(name = "price")
     private Double price;
@@ -17,9 +21,9 @@ public class ExecutiveRoom extends Room {
     @Column(name = "description")
     private String description;
 
-    public ExecutiveRoom() {
-        price = 500.0;
-        description = "This is an Executive Room";
+    public JuniorSuiteRoom() {
+        price = 200.0;
+        description = "This is a Junior Suite Room";
     }
 
     @Override
