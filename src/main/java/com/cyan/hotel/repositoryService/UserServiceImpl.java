@@ -29,6 +29,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean validateUser(String user, String password) {
         User username = userRepository.findByUsername(user);
-        return (user.equalsIgnoreCase(username.getUsername()));
+
+        return (user.equals(username.getUsername()));
     }
 }

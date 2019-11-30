@@ -1,11 +1,6 @@
 package com.cyan.hotel.controller;
 
-import com.cyan.hotel.model.Guest;
 import com.cyan.hotel.model.User;
-import com.cyan.hotel.repositoryService.LoginService;
-import com.cyan.hotel.repositoryService.RegistrationService;
-import com.cyan.hotel.repository.UserRepository;
-import com.cyan.hotel.repositoryService.RegistrationServiceImpl;
 import com.cyan.hotel.repositoryService.UserService;
 import com.cyan.hotel.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
 /**
  * @author: Naichuan Zhang
@@ -40,7 +32,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/register")
-    public String register(@ModelAttribute("userForm") User userForm, BindingResult result) {
+    public String register(@ModelAttribute("userForm") User userForm, BindingResult result, ModelMap model) {
         userValidator.validate(userForm, result);
 
         if (result.hasErrors()) {
@@ -49,7 +41,9 @@ public class UserController {
 
         userService.save(userForm);
 
-        return "redirect:/";
+        model.addAttribute("username", userForm.getUsername());
+
+        return "redirect:/login";
     }
 
     @RequestMapping(value="/login", method = RequestMethod.GET)
@@ -66,7 +60,10 @@ public class UserController {
         }
         model.put("name", name);
         model.put("password", password);
+
+        model.addAttribute("username", name);
+        model.addAttribute("login", "true");
+
         return "home";
     }
-
 }
