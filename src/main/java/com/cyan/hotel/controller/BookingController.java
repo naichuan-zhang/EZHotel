@@ -27,9 +27,6 @@ public class BookingController {
     private RoomService roomService;
 
     @Autowired
-    private UserService userService;
-
-    @Autowired
     private BookingService bookingService;
 
 //    @GetMapping(value = "/booking")
@@ -48,14 +45,19 @@ public class BookingController {
     }
 
     @GetMapping(value = "/booking/user/{username}")
-    public String getUsername(@PathVariable String username, Model model) {
+    public String getUsername(@PathVariable String username,
+                              @RequestParam("numOfGuests") Integer numOfGuests,  Model model) {
 
-        //User user = userService.findByUsername(username);
-        //Long userId = user.getUserId();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = new Date();
-        bookingService.insertBooking(formatter.format(date), 1, 100, username);
-        return "redirect:/booking/success/";
+        if (!username.isEmpty()) {
+            //User user = userService.findByUsername(username);
+            //Long userId = user.getUserId();
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = new Date();
+            bookingService.insertBooking(formatter.format(date), numOfGuests, 100, username);
+            return "redirect:/booking/success/";
+        } else {
+            return "redirect:/booking/failed/";
+        }
     }
 
     @GetMapping(value = "booking/success/")
@@ -63,6 +65,10 @@ public class BookingController {
         return "home";
     }
 
+    @GetMapping(value = "booking/failed/")
+    public String failed() {
+        return "home";
+    }
 
 //    @RequestMapping(method = RequestMethod.GET)
 //    public String initForm(Model model) {

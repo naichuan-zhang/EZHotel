@@ -28,7 +28,7 @@
     <h1>Booking</h1>
 </div>
 
-<form method="get" action="${pageContext.request.contextPath}/booking/">
+<form method="get" action="${pageContext.request.contextPath}/booking/user/${sessionScope.username}">
     <table id="roomDetailsTable" class="table table-bordered table-hover table-striped">
         <thead>
             <tr>
@@ -48,7 +48,16 @@
                 </tr>
         </tbody>
     </table>
-    <input class="btn btn-primary" id="confirm" value="Confirm Booking" onclick="location.href='/booking/user/${sessionScope.username}'">
+    <p>Please select the number of guest below:</p>
+    <select name="numOfGuests" id="numOfGuests">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+    </select>
+    <input class="btn btn-primary" id="confirm" type="submit" value="Confirm Booking">
     <input class="btn btn-primary" id="cancel" value="Cancel" onclick="location.href='/room'">
 </form>
 
