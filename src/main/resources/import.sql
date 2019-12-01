@@ -30,5 +30,5 @@ INSERT INTO DOUBLE_ROOM VALUES
 ('This is a Double Room', 200.0, '6');
 
 INSERT INTO JUNIOR_SUITE_ROOM VALUES
-('This is a Junior Suite Room', 200.0, '7');
+('This is a Junior Suite Room', 200.0, '7'),
 ('This is a Junior Suite Room', 200.0, '8');
