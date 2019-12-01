@@ -14,7 +14,7 @@ INSERT INTO ROOM VALUES
 (null, '0', 'SINGLE', null),
 (null, '0', 'DOUBLE', null),
 (null, '0', 'DOUBLE', null),
-(null, '0', 'JUNIORSUITE', null);
+(null, '0', 'JUNIORSUITE', null),
 (null, '0', 'JUNIORSUITE', null);
 
 INSERT INTO EXECUTIVE_ROOM VALUES
@@ -30,5 +30,5 @@ INSERT INTO DOUBLE_ROOM VALUES
 ('This is a Double Room', 200.0, '6');
 
 INSERT INTO JUNIOR_SUITE_ROOM VALUES
-('This is a Junior Suite Room', 200.0, '7');
+('This is a Junior Suite Room', 200.0, '7'),
 ('This is a Junior Suite Room', 200.0, '8');
