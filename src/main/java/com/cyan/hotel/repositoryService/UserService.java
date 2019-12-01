@@ -13,4 +13,5 @@ public interface UserService {
     void save(User user);
     User findByUserId(Long userId);
     boolean validateUser(String username, String password);
+    void updateUserBalance(Long userId, Double currentBalance);
 }

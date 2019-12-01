@@ -37,4 +37,10 @@ public class UserServiceImpl implements UserService {
 
         return (user.equals(username.getUsername()));
     }
+
+    @Override
+    public void updateUserBalance(Long userId, Double currentBalance) {
+
+        userRepository.updateUserBalance(currentBalance, userId);
+    }
 }

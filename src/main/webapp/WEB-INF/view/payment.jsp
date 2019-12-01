@@ -1,3 +1,4 @@
+<%--@elvariable id="balance" type="java.lang.Double"--%>
 <%--@elvariable id="booking" type="com.cyan.hotel.model.Booking"--%>
 <%--
   Created by IntelliJ IDEA.
@@ -29,9 +30,12 @@
     <h1>Payment</h1>
 </div>
 
-<form method="get" action="${pageContext.request.contextPath}/payment/${booking.getBookingId()}/${username}/${booking.getBookingTotal()}">
+<form method="get" action="${pageContext.request.contextPath}/payment/${booking.getBookingId()}/${username}/${booking.getBookingTotal()}/${balance}">
     <table id="paymentDetailsTable" class="table table-bordered table-striped table-hover">
         <thead>
+            <tr>
+                <th>Your current balance is: &#8364;${balance}</th>
+            </tr>
             <tr>
                 <th>Booking Id</th>
                 <th>Username</th>

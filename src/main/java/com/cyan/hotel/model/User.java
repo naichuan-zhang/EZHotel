@@ -52,6 +52,7 @@ public class User {
         this.lastName = builder.lastName;
         this.username = builder.username;
         this.password = builder.password;
+        this.balance = builder.balance;
     }
 
     public static Builder<?> builder() {
@@ -133,6 +134,7 @@ public class User {
         private String lastName;
         private String username;
         private String password;
+        private Double balance;
 
         public Builder<T> firstName(String firstName) {
             this.firstName = firstName;
@@ -151,6 +153,11 @@ public class User {
 
         public Builder<T> password(String password) {
             this.password = password;
+            return this;
+        }
+
+        public Builder<T> balance(Double balance) {
+            this.balance = balance;
             return this;
         }
 

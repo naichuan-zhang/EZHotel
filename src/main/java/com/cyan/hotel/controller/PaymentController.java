@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.ws.rs.Path;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -50,12 +49,14 @@ public class PaymentController {
         if (!username.isEmpty()) {
             User user = userService.findByUsername(username);
             Long userId = user.getUserId();
+            Double balance = user.getBalance();
             Booking booking = bookingService.findBookingByUser(user);
             List<PayType> payTypes = getPayTypes();
 
             model.addAttribute(booking);
             model.addAttribute(userId);
             model.addAttribute(totalPrice);
+            model.addAttribute("balance", balance);
             model.addAttribute("payTypesList", payTypes);
 
             return "payment";
@@ -64,17 +65,28 @@ public class PaymentController {
         }
     }
 
-    @GetMapping(value = "/payment/{bookingId}/{username}/{totalPrice}")
+    @GetMapping(value = "/payment/{bookingId}/{username}/{totalPrice}/{balance}")
     public String pay(@PathVariable Long bookingId, @PathVariable String username,
-                      @PathVariable Double totalPrice, @RequestParam("payTypesList") PayType payType, Model model) {
+                      @PathVariable Double totalPrice, @RequestParam("payTypesList") PayType payType,
+                      @PathVariable Double balance, Model model) {
 
         if (!username.isEmpty()) {
 
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();
             User user = userService.findByUsername(username);
-            paymentService.insertPayment(user.getUserId(), formatter.format(date), totalPrice, payType);
-            return "redirect:/payment/success";
+
+            double currentBalance = balance - totalPrice;
+
+            if (currentBalance >=0 ) {
+                // TODO: update user's balance ...
+                userService.updateUserBalance(user.getUserId(), currentBalance);
+                paymentService.insertPayment(user.getUserId(), formatter.format(date), totalPrice, payType);
+
+                return "redirect:/payment/success";
+            } else {
+                return "redirect:/payment/failed";
+            }
 
         } else {
             return "redirect:/payment/failed";
