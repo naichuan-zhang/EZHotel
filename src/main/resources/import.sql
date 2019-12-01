@@ -14,7 +14,7 @@ INSERT INTO ROOM VALUES
 (null, '0', 'SINGLE', null),
 (null, '0', 'DOUBLE', null),
 (null, '0', 'DOUBLE', null),
-(null, '0', 'JUNIORSUITE', null);
+(null, '0', 'JUNIORSUITE', null),
 (null, '0', 'JUNIORSUITE', null);
 
 INSERT INTO EXECUTIVE_ROOM VALUES
