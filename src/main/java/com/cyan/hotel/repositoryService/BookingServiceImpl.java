@@ -15,6 +15,7 @@ import java.util.Date;
 
 @Service
 public class BookingServiceImpl implements BookingService {
+
     @Autowired
     BookingRepository bookingRepository;
 
@@ -23,7 +24,7 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public void insertBooking(String bookingDate, Integer numberOfGuests,
-                              Integer bookingTotal, String username) {
+                              Double bookingTotal, String username) {
         // TODO: Add business logic
         Booking booking = new Booking();
         booking.setBookingDate(bookingDate);
@@ -31,5 +32,12 @@ public class BookingServiceImpl implements BookingService {
         booking.setUser(userService.findByUsername(username));
         booking.setBookingTotal(bookingTotal);
         bookingRepository.save(booking);
+    }
+
+    @Override
+    public Booking findBookingByUser(User user) {
+        Long userId = user.getUserId();
+        return bookingRepository
+                .findBookingByUser(userService.findByUserId(userId));
     }
 }

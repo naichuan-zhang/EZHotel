@@ -21,8 +21,7 @@ public class Payment {
     private Long paymentId;
 
     @Column(name = "paymentDate")
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date paymentDate;
+    private String paymentDate;
 
     @Enumerated(value = EnumType.STRING)
     private PayType payType;
@@ -30,12 +29,9 @@ public class Payment {
     @Column(name = "paymentAmount")
     private Double paymentAmount;
 
-    @Column(name = "payeeName")
-    private String payeeName;
-
     @ManyToOne
     @JoinColumn(name = "userId")
-    private Guest guest;
+    private User user;
 
     public Payment() {
 
@@ -47,14 +43,6 @@ public class Payment {
 
     public void setPaymentId(Long paymentId) {
         this.paymentId = paymentId;
-    }
-
-    public Date getPaymentDate() {
-        return paymentDate;
-    }
-
-    public void setPaymentDate(Date paymentDate) {
-        this.paymentDate = paymentDate;
     }
 
     public PayType getPayType() {
@@ -73,19 +61,19 @@ public class Payment {
         this.paymentAmount = paymentAmount;
     }
 
-    public String getPayeeName() {
-        return payeeName;
+    public User getUser() {
+        return user;
     }
 
-    public void setPayeeName(String payeeName) {
-        this.payeeName = payeeName;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Guest getGuest() {
-        return guest;
+    public String getPaymentDate() {
+        return paymentDate;
     }
 
-    public void setGuest(Guest guest) {
-        this.guest = guest;
+    public void setPaymentDate(String paymentDate) {
+        this.paymentDate = paymentDate;
     }
 }

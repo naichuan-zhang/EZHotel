@@ -30,7 +30,7 @@ public class Booking  {
     private Integer numberOfGuests;
 
     @Column(name = "bookingTotal")
-    private Integer bookingTotal;
+    private Double bookingTotal;
 
     @ManyToOne
     @JoinColumn(name = "userId")
@@ -89,11 +89,11 @@ public class Booking  {
         this.user = user;
     }
 
-    public void setBookingTotal(Integer bookingTotal) {
-        this.bookingTotal = bookingTotal;
+    public Double getBookingTotal() {
+        return bookingTotal;
     }
 
-    public Integer getBookingTotal() {
-        return bookingTotal;
+    public void setBookingTotal(Double bookingTotal) {
+        this.bookingTotal = bookingTotal;
     }
 }

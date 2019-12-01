@@ -56,11 +56,22 @@ public class BookingController {
 
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();
-            bookingService.insertBooking(formatter.format(date), numOfGuests, 100, username);
-            return "redirect:/booking/success/";
+            bookingService.insertBooking(formatter.format(date), numOfGuests, bookingTotalPrice, username);
+
+            return "redirect:/payment/" + username + "/" + bookingTotalPrice;
         } else {
             return "redirect:/booking/failed/";
         }
+    }
+
+//    @GetMapping(value = "booking/success/")
+//    public String success() {
+//        return "home";
+//    }
+
+    @GetMapping(value = "booking/failed/")
+    public String failed() {
+        return "home";
     }
 
     private Double getTotalPrice(String extrasList, String roomType, Double price) {
@@ -81,60 +92,26 @@ public class BookingController {
             List<String> extras = new ArrayList<>(Arrays.asList(values));
 
             for(String extra : extras){
-                if (extra.equals("AC")) {
-                    room = new withAC(room);
-                } else if (extra.equals("BottleOfWine")) {
-                    room = new withBottleOfWine(room);
-                } else if (extra.equals("Dinner")) {
-                    room = new withDinner(room);
-                } else if (extra.equals("WiFi")) {
-                    room = new withWiFi(room);
+                switch (extra) {
+                    case "AC":
+                        room = new withAC(room);
+                        break;
+                    case "BottleOfWine":
+                        room = new withBottleOfWine(room);
+                        break;
+                    case "Dinner":
+                        room = new withDinner(room);
+                        break;
+                    case "WiFi":
+                        room = new withWiFi(room);
+                        break;
                 }
             }
 
+            assert room != null;
             return room.getPrice();
         }
 
         return price;
     }
-
-    @GetMapping(value = "booking/success/")
-    public String success() {
-        return "home";
-    }
-
-    @GetMapping(value = "booking/failed/")
-    public String failed() {
-        return "home";
-    }
-
-//    @RequestMapping(method = RequestMethod.GET)
-//    public String initForm(Model model) {
-//        RoomType roomType = new RoomType();
-//        model.addAttribute("roomType", roomType);
-//        initRoomTypesList(model);
-//        return "roomType";
-//    }
-//
-//    @RequestMapping(method = RequestMethod.POST)
-//    public String submitForm(Model model, @Validated RoomType roomType, BindingResult result) {
-//        model.addAttribute("roomType", roomType);
-//        String returnVal = "successRoomType";
-//        if(result.hasErrors()) {
-//            initRoomTypesList(model);
-//            returnVal = "roomType";
-//        } else {
-//            model.addAttribute("roomType", roomType);
-//        }
-//        return returnVal;
-//    }
-//
-//
-//    private void initRoomTypesList(Model model){
-//        List<String> roomTypesList = new ArrayList<String>();
-//        roomTypesList.add("Executive Room");
-//        roomTypesList.add("Double Room");
-//        roomTypesList.add("Single Room");
-//        model.addAttribute("roomTypes", roomTypesList);
-//    }
 }

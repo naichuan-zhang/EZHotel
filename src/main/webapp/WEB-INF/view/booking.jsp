@@ -28,7 +28,8 @@
     <h1>Booking</h1>
 </div>
 
-<form method="get" action="${pageContext.request.contextPath}/booking/user/${sessionScope.username}/${room.getRoomType()}/${room.getPrice()}">
+<form method="get" style="alignment: center"
+      action="${pageContext.request.contextPath}/booking/user/${sessionScope.username}/${room.getRoomType()}/${room.getPrice()}">
     <table id="roomDetailsTable" class="table table-bordered table-hover table-striped">
         <thead>
             <tr>
@@ -39,7 +40,7 @@
             </tr>
         </thead>
         <tbody>
-            <p>Booking Details: </p>
+        <p><b>Booking Details: </b></p>
             <c:set var="i" value="1"/>
             <%--@elvariable id="room" type="com.cyan.hotel.model.Room"--%>
                 <tr>
@@ -51,7 +52,7 @@
         </tbody>
     </table>
 
-    <p>Please select the number of guest below:</p>
+    <p><b>Please select the number of guest below:</b></p>
     <select name="numOfGuests" id="numOfGuests">
         <option>1</option>
         <option>2</option>
@@ -59,7 +60,7 @@
         <option>4</option>
     </select>
 
-    <p>You can select any extras below if you want:</p>
+    <p><b>You can select any extras below if you want:</b></p>
     <input type="checkbox" id="withAC" name="extras" value="AC">AC
     <input type="checkbox" id="withBottleOfWine" name="extras" value="BottleOfWine">Bottle of Wine
     <input type="checkbox" id="withDinner" name="extras" value="Dinner">Dinner
@@ -72,6 +73,7 @@
         <li><%=extras[i]%></li><%}%>
     </ul><%}%>
 
+    <br><br>
     <input class="btn btn-primary" id="confirm" type="submit" value="Confirm Booking">
     <input class="btn btn-primary" id="cancel" value="Cancel" onclick="location.href='/room'">
 </form>

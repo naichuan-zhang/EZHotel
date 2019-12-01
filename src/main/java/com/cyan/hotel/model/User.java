@@ -4,6 +4,7 @@ import org.springframework.boot.autoconfigure.info.ProjectInfoProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
+import java.util.List;
 
 /**
  * @author: Naichuan Zhang
@@ -39,13 +40,8 @@ public class User {
     @Column
     private Double balance;
 
-    public Double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(Double balance) {
-        this.balance = balance;
-    }
+    @OneToMany(mappedBy = "user")
+    private List<Payment> payments;
 
     public User() {
 
@@ -114,6 +110,23 @@ public class User {
     public void setPasswordConfirm(String passwordConfirm) {
         this.passwordConfirm = passwordConfirm;
     }
+
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
+
+    public List<Payment> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(List<Payment> payments) {
+        this.payments = payments;
+    }
+
 
     public static abstract class Builder<T extends User> {
         private String firstName;
