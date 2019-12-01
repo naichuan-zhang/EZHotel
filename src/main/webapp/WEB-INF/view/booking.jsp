@@ -28,11 +28,12 @@
     <h1>Booking</h1>
 </div>
 
-<form method="get" action="${pageContext.request.contextPath}/booking/user/${sessionScope.username}">
+<form method="get" action="${pageContext.request.contextPath}/booking/user/${sessionScope.username}/${room.getRoomType()}/${room.getPrice()}">
     <table id="roomDetailsTable" class="table table-bordered table-hover table-striped">
         <thead>
             <tr>
                 <th>Room Id</th>
+                <th>Room Type</th>
                 <th>Room Description</th>
                 <th>Price</th>
             </tr>
@@ -43,20 +44,34 @@
             <%--@elvariable id="room" type="com.cyan.hotel.model.Room"--%>
                 <tr>
                     <td>${room.getRoomId()}</td>
+                    <td>${room.getRoomType()}</td>
                     <td>${room.getDescription()}</td>
                     <td>${room.getPrice()}</td>
                 </tr>
         </tbody>
     </table>
+
     <p>Please select the number of guest below:</p>
     <select name="numOfGuests" id="numOfGuests">
         <option>1</option>
         <option>2</option>
         <option>3</option>
         <option>4</option>
-        <option>5</option>
-        <option>6</option>
     </select>
+
+    <p>You can select any extras below if you want:</p>
+    <input type="checkbox" id="withAC" name="extras" value="AC">AC
+    <input type="checkbox" id="withBottleOfWine" name="extras" value="BottleOfWine">Bottle of Wine
+    <input type="checkbox" id="withDinner" name="extras" value="Dinner">Dinner
+    <input type="checkbox" id="withWiFi" name="extras" value="WiFi">WiFi
+
+    <%String extras[]= request.getParameterValues("extras");
+        if(extras != null){%>
+    <h4>The extras you have selected are: </h4>
+    <ul><%for(int i=0; i<extras.length; i++){%>
+        <li><%=extras[i]%></li><%}%>
+    </ul><%}%>
+
     <input class="btn btn-primary" id="confirm" type="submit" value="Confirm Booking">
     <input class="btn btn-primary" id="cancel" value="Cancel" onclick="location.href='/room'">
 </form>

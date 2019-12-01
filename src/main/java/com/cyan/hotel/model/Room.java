@@ -37,8 +37,8 @@ public abstract class Room {
         this.roomStatus = 0;
     }
 
-    abstract Double getPrice();
-    abstract String getDescription();
+    public abstract Double getPrice();
+    public abstract String getDescription();
 
     public Long getRoomId() {
         return roomId;

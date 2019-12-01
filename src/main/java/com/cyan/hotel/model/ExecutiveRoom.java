@@ -27,7 +27,7 @@ public class ExecutiveRoom extends Room {
 
     @Override
     public Double getPrice() {
-        return price;
+        return 500.0;
     }
 
     @Override

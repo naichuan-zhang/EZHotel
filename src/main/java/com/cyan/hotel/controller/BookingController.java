@@ -1,19 +1,18 @@
 package com.cyan.hotel.controller;
 
-import com.cyan.hotel.model.Booking;
-import com.cyan.hotel.model.Room;
-import com.cyan.hotel.model.User;
+import com.cyan.hotel.model.*;
 import com.cyan.hotel.repositoryService.BookingService;
-import com.cyan.hotel.repositoryService.BookingServiceImpl;
 import com.cyan.hotel.repositoryService.RoomService;
-import com.cyan.hotel.repositoryService.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author: Naichuan Zhang
@@ -44,13 +43,17 @@ public class BookingController {
         return "booking";
     }
 
-    @GetMapping(value = "/booking/user/{username}")
+    @GetMapping(value = "/booking/user/{username}/{roomType}/{price}")
     public String getUsername(@PathVariable String username,
-                              @RequestParam("numOfGuests") Integer numOfGuests,  Model model) {
+                              @PathVariable String roomType,
+                              @PathVariable Double price,
+                              @RequestParam("numOfGuests") Integer numOfGuests,
+                              @RequestParam("extras") String extrasList, Model model) {
 
         if (!username.isEmpty()) {
-            //User user = userService.findByUsername(username);
-            //Long userId = user.getUserId();
+
+            Double bookingTotalPrice = getTotalPrice(extrasList, roomType, price);
+
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();
             bookingService.insertBooking(formatter.format(date), numOfGuests, 100, username);
@@ -58,6 +61,39 @@ public class BookingController {
         } else {
             return "redirect:/booking/failed/";
         }
+    }
+
+    private Double getTotalPrice(String extrasList, String roomType, Double price) {
+
+        Room room = null;
+        if (roomType.equalsIgnoreCase("EXECUTIVE")) {
+            room = new ExecutiveRoom();
+        } else if (roomType.equalsIgnoreCase("SINGLE")) {
+            room = new SingleRoom();
+        } else if (roomType.equalsIgnoreCase("DOUBLE")) {
+            room = new DoubleRoom();
+        } else if (roomType.equalsIgnoreCase("JUNIORSUITE")) {
+            room = new JuniorSuiteRoom();
+        }
+
+        if (extrasList != null) {
+            String[] values = extrasList.split(",");
+            List<String> extras = new ArrayList<>(Arrays.asList(values));
+
+            if (extras.contains("AC")) {
+                room = new withAC(room);
+            } else if (extras.contains("BottleOfWine")) {
+                room = new withBottleOfWine(room);
+            } else if (extras.contains("Dinner")) {
+                room = new withDinner(room);
+            } else if (extras.contains("WiFi")) {
+                room = new withWiFi(room);
+            }
+
+            return room.getPrice();
+        }
+
+        return price;
     }
 
     @GetMapping(value = "booking/success/")

@@ -27,7 +27,7 @@ public class SingleRoom extends Room {
 
     @Override
     public Double getPrice() {
-        return price;
+        return 150.0;
     }
 
     @Override

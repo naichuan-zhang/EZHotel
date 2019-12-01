@@ -30,7 +30,7 @@ public class JuniorSuiteRoom extends Room {
 
     @Override
     public Double getPrice() {
-        return price;
+        return 200.0;
     }
 
     @Override
