@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.ws.rs.Path;
 import java.text.SimpleDateFormat;
@@ -65,14 +66,14 @@ public class PaymentController {
 
     @GetMapping(value = "/payment/{bookingId}/{username}/{totalPrice}")
     public String pay(@PathVariable Long bookingId, @PathVariable String username,
-                      @PathVariable Double totalPrice, Model model) {
+                      @PathVariable Double totalPrice, @RequestParam("payTypesList") PayType payType, Model model) {
 
         if (!username.isEmpty()) {
 
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();
             User user = userService.findByUsername(username);
-           // paymentService.insertPayment(user.getUserId(), formatter.format(date), totalPrice, payType);
+            paymentService.insertPayment(user.getUserId(), formatter.format(date), totalPrice, payType);
             return "redirect:/payment/success";
 
         } else {

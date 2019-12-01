@@ -50,7 +50,15 @@
         </tbody>
     </table>
 
-
+    <select name="payTypesList" id="payTypesId">
+        <p><b>Pay through: </b></p>
+        <%--@elvariable id="payTypesList" type="com.cyan.hotel.enumeration.PayType"--%>
+        <c:if test="${not empty payTypesList}">
+            <c:forEach var="payType" items="${payTypesList}">
+                <option value="${payType}">${payType}</option>
+            </c:forEach>
+        </c:if>
+    </select>
 
     <input class="btn btn-primary" id="payment" type="submit" value="Pay Now">
 </form>
