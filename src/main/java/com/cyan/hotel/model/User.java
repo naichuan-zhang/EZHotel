@@ -36,6 +36,17 @@ public class User {
     @Transient
     private String passwordConfirm;
 
+    @Column
+    private Double balance;
+
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
+
     public User() {
 
     }

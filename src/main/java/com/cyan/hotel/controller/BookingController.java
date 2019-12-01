@@ -80,14 +80,16 @@ public class BookingController {
             String[] values = extrasList.split(",");
             List<String> extras = new ArrayList<>(Arrays.asList(values));
 
-            if (extras.contains("AC")) {
-                room = new withAC(room);
-            } else if (extras.contains("BottleOfWine")) {
-                room = new withBottleOfWine(room);
-            } else if (extras.contains("Dinner")) {
-                room = new withDinner(room);
-            } else if (extras.contains("WiFi")) {
-                room = new withWiFi(room);
+            for(String extra : extras){
+                if (extra.equals("AC")) {
+                    room = new withAC(room);
+                } else if (extra.equals("BottleOfWine")) {
+                    room = new withBottleOfWine(room);
+                } else if (extra.equals("Dinner")) {
+                    room = new withDinner(room);
+                } else if (extra.equals("WiFi")) {
+                    room = new withWiFi(room);
+                }
             }
 
             return room.getPrice();
