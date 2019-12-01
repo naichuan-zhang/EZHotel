@@ -45,4 +45,9 @@ public class RoomServiceImpl implements RoomService {
     public List<Room> getRoomsByRoomType(String roomType) {
         return roomRepository.getRoomsByRoomType(roomType);
     }
+
+    @Override
+    public void updateRoomStatus(Long roomId, Integer roomStatus) {
+        //roomRepository.updateRoomStatus(roomId, roomStatus);
+    }
 }

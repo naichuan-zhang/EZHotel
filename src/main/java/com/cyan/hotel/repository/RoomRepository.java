@@ -3,12 +3,15 @@ package com.cyan.hotel.repository;
 import com.cyan.hotel.model.Booking;
 import com.cyan.hotel.model.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 @Repository
 public interface RoomRepository extends JpaRepository<Room, Long> {
 
@@ -21,4 +24,8 @@ public interface RoomRepository extends JpaRepository<Room, Long> {
     List<Room> getRoomsByRoomType(String roomType);
 
     Room getRoomByRoomId(Long roomId);
+
+//    @Modifying(clearAutomatically = true)
+//    @Query("update Room room set room.roomStatus=?2 where room.roomId=?1")
+//    void updateRoomStatus(Long roomId, Integer roomStatus);
 }

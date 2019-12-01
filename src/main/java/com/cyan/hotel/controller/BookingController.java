@@ -57,6 +57,7 @@ public class BookingController {
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();
             bookingService.insertBooking(formatter.format(date), numOfGuests, bookingTotalPrice, username);
+            //roomService.updateRoomStatus(roomId, 0);
 
             return "redirect:/payment/" + username + "/" + bookingTotalPrice;
         } else {
@@ -69,7 +70,7 @@ public class BookingController {
 //        return "home";
 //    }
 
-    @GetMapping(value = "booking/failed/")
+    @GetMapping(value = "/booking/failed/")
     public String failed() {
         return "home";
     }

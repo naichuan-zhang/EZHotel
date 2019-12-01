@@ -17,6 +17,7 @@ import java.util.List;
  * @create: 06-Nov-2019
  **/
 
+// in order to execute update operation
 @Transactional
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {

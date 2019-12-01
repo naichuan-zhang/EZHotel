@@ -10,4 +10,5 @@ public interface RoomService {
     List<Room> findAllRooms();
     List<Room> findAllAvailableRooms();
     List<Room> getRoomsByRoomType(String roomType);
+    void updateRoomStatus(Long roomId, Integer roomStatus);
 }

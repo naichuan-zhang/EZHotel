@@ -79,7 +79,7 @@ public class PaymentController {
             double currentBalance = balance - totalPrice;
 
             if (currentBalance >=0 ) {
-                // TODO: update user's balance ...
+                // update user balance here ...
                 userService.updateUserBalance(user.getUserId(), currentBalance);
                 paymentService.insertPayment(user.getUserId(), formatter.format(date), totalPrice, payType);
 

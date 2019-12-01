@@ -89,11 +89,11 @@ public class Booking  {
         this.user = user;
     }
 
-    public Double getBookingTotal() {
-        return bookingTotal;
-    }
-
     public void setBookingTotal(Double bookingTotal) {
         this.bookingTotal = bookingTotal;
+    }
+
+    public Double getBookingTotal() {
+        return bookingTotal;
     }
 }
