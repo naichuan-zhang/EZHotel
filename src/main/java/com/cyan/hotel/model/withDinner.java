@@ -21,3 +21,4 @@ public class withDinner extends RoomDecorator {
         return super.getDescription() + " with dinner!";
     }
 }
+

@@ -22,3 +22,4 @@ public class RoomDecorator extends Room {
         return room.getDescription();
     }
 }
+
